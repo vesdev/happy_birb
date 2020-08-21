@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "willy_is_you",
-    "path": "willy_is_you.yyp",
+    "name": "Oscar",
+    "path": "folders/Objects/Oscar.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_player",
