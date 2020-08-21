@@ -23,8 +23,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Rules",
-    "path": "folders/Objects/Soves/Rules.yy",
+    "name": "Soves",
+    "path": "folders/Objects/Soves.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_rules",
