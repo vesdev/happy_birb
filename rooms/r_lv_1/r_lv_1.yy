@@ -57,7 +57,7 @@
   },
   "parent": {
     "name": "Oscar",
-    "path": "folders/Rooms/Soves/Oscar.yy",
+    "path": "folders/Rooms/Oscar.yy",
   },
   "resourceVersion": "1.0",
   "name": "r_lv_1",
