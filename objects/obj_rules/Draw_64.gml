@@ -1,4 +1,3 @@
-if live_call() return live_result;
 
 //window_set_size(1280,720)
 draw_set_halign(fa_center);
@@ -32,33 +31,39 @@ for(var xx = 0; xx < blocks_w ; xx++){
 if o_input.up_pressed  {
 	
 	//block_push = function(blocks, x,y,x_add,y_add){
-	var s = block_push(blocks,player_grid_position.x,player_grid_position.y,
+	var s = block_push(blocks,player_grid_position.x,player_grid_position.y-1,
 	0,-1 )
 	
-	show_debug_message(s)
+
 	if s { 
+
 	player_grid_position.y -= 1;
+	
+	updateRules(blocks,allRules);
 	}
 }
 	
 if o_input.down_pressed  {
-	var s = block_push(blocks,player_grid_position.x,player_grid_position.y,
+	var s = block_push(blocks,player_grid_position.x,player_grid_position.y+1,
 	0,1 )
 	if s { 
+	updateRules(blocks,allRules);
 	player_grid_position.y += 1;
 	}
 }
 if o_input.left_pressed  {
-	var s = block_push(blocks,player_grid_position.x,player_grid_position.y,
+	var s = block_push(blocks,player_grid_position.x-1,player_grid_position.y,
 	-1,0 )
 	if s { 
+	updateRules(blocks,allRules);
 	player_grid_position.x -= 1;
 	}
 }
 if o_input.right_pressed  {
-	var s = block_push(blocks,player_grid_position.x,player_grid_position.y,
+	var s = block_push(blocks,player_grid_position.x+1,player_grid_position.y,
 	1,0 )
 	if s { 
+	updateRules(blocks,allRules);
 	player_grid_position.x += 1;
 	}
 }

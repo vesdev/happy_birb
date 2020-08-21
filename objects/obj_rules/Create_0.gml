@@ -1,14 +1,6 @@
-if live_call() return live_result;
-
 
 block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_ui_sprite);
 block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_ui_sprite);
-
-
-
-
-
-
 
 block_result_hi = new Block(
 	"say\nhi", global.Rules.Result, 
@@ -28,7 +20,6 @@ block_result_jump = new Block(
 block_touching_ground_condition = new Block(
 	"On\nGround", global.Rules.Condition, 
 	function(){
-		
 		with o_movement_parent {
 			return touching_ground;
 		}
@@ -76,7 +67,9 @@ updateRules = function(blocks, ruleDsList){
 				delete blocks[i][j].rule;
 			}
 			
-				if blocks[i][j].blockType = global.Rules.Statement{
+			show_debug_message( blocks[i][j].blockType)
+		
+				if  blocks[i][j].blockType != undefined and blocks[i][j].blockType = global.Rules.Statement{
 				
 					if i > 0 && i < blocks_w-1{
 					
@@ -114,12 +107,12 @@ block_push = function(blocks, x,y,x_add,y_add){
 		if blocks[x+ x_add][y + y_add] = -1 { 
 			blocks[x+x_add][y+y_add] = blocks[x][y];
 			blocks[x][y] = -1;
-			
 			moved_block = true;
 		}else{
 			
-			moved_block = block_push( blocks,x+x_add,y+x_add, x_add,y_add);
+			moved_block = false;//block_push( blocks,x+x_add,y+x_add, x_add,y_add);
 		}
 	}
 	return moved_block;
 }
+
