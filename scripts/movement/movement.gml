@@ -103,7 +103,6 @@ if jump_force > 0 {
 	}
 	
 
-draw_text(x,y,string(y));
 
 	
 
