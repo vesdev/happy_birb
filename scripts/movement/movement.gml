@@ -80,17 +80,21 @@ if jump_force > 0 {
 		}else{ 
 			var xdiv = x div 32;
 			var ydiv = y div 32;
-			
 			var xmult = xdiv * 32;
 			var ymult = ydiv * 32;
+			//y =  ymult+32-sprite_get_yoffset(sprite_index);
 			
-			y =  ymult+32-sprite_get_yoffset(object_index);
+			y  =  y div 32;
+			y *= 32;
+			y += 32;
+			y -= sprite_get_yoffset(sprite_index);
+	
 			
 			jump_force = 0;
 			gravity_y_add  = 0;
 			gravity_speed_ = 0;
 		}
-		touching_ground = false;
+			touching_ground = false;
 	}else{
 			touching_ground = true;
 			jump_force = 0;
@@ -99,7 +103,7 @@ if jump_force > 0 {
 	}
 	
 
-draw_text(x,y,string(gravity_speed_));
+draw_text(x,y,string(y));
 
 	
 
@@ -110,7 +114,6 @@ draw_text(x,y,string(gravity_speed_));
 		
 			gravity_y_add = 0;
 			gravity_speed_ = 0;	
-			
 			jump_force = 0;
 
 		if (_y_speed > 0) {
@@ -132,7 +135,8 @@ draw_text(x,y,string(gravity_speed_));
 
 	
 
-	y += _y_speed;
+		y += _y_speed;
+	
 	}
 	speed_ = point_distance(0, 0, _x_speed, _y_speed);
 	direction_ = point_direction(0, 0, _x_speed, _y_speed);
