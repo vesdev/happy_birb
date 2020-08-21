@@ -42,6 +42,14 @@ block_condition = new Block(
 blocks = [];
 blocks_w = 10;
 blocks_h = 10;
+
+
+player_grid_position = { 
+	x : 5,
+	y : 5
+}
+
+
 for(var i = 0; i < blocks_w ; i++){
 	blocks[i] = [];
 	for(var j = 0; j < blocks_h ; j++){
