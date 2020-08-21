@@ -11,7 +11,6 @@ function approach(_current, _target, _amount){
 function transition (next_room) { 
 	
 	instance_create_layer(0,0,"Instances",o_transition);
-	
-	
-	
 }
+
+

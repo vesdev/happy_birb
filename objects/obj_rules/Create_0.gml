@@ -1,21 +1,41 @@
+if live_call() return live_result;
 
-block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_block);
-block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_block);
+
+block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_ui_sprite);
+block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_ui_sprite);
 
 block_result_hi = new Block(
 	"say\nhi", global.Rules.Result, 
 	function(){
 		show_debug_message("hi");
 	},
-	s_block
+	s_ui_sprite
 );
+
+block_result_jump = new Block( 
+	 "Player\nJump", global.Rules.Result,
+	 o_movement_parent.jump,
+	 s_ui_sprite
+); 
+
+
+block_touching_ground_condition = new Block(
+	"ON GROUND", global.Rules.Condition, 
+	function(){
+		
+		with o_movement_parent {
+			return touching_ground;
+		}
+	},s_ui_sprite
+);
+
 
 block_condition = new Block(
 	"true", global.Rules.Condition, 
 	function(){
 		return true;
 	},
-	s_block
+	s_ui_sprite
 );
 
 //set up grid
@@ -67,8 +87,8 @@ updateRules = function(blocks, ruleDsList){
 
 //temporary stuff
 
-blocks[1][3] = block_result_hi;
+blocks[1][3] = block_result_jump;
 blocks[2][3] = block_while;
-blocks[3][3] = block_condition;
+blocks[3][3] = block_touching_ground_condition;
 
 updateRules(blocks, allRules);

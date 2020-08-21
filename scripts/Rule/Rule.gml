@@ -24,6 +24,8 @@ function Block(_name, _type, _function, _sprite) constructor {
 	func = _function;
 	sprite = _sprite;
 	rule = undefined;
+	x = 0;
+	y = 0;
 }
 
 function Rule(_result, _condition, _statement) constructor{

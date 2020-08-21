@@ -88,13 +88,13 @@ if jump_force > 0 {
 			y *= 32;
 			y += 32;
 			y -= sprite_get_yoffset(sprite_index);
-			show_debug_message(y)
+	
 			
 			jump_force = 0;
 			gravity_y_add  = 0;
 			gravity_speed_ = 0;
 		}
-		touching_ground = false;
+			touching_ground = false;
 	}else{
 			touching_ground = true;
 			jump_force = 0;
