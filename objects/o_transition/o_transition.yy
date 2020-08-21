@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "s_win_condition",
-    "path": "sprites/s_win_condition/s_win_condition.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -21,7 +18,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_player","path":"objects/o_player/o_player.yy",},"parent":{"name":"o_win_condition","path":"objects/o_win_condition/o_win_condition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_transition","path":"objects/o_transition/o_transition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_transition","path":"objects/o_transition/o_transition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,7 +28,7 @@
     "path": "folders/Objects/Oscar.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_win_condition",
+  "name": "o_transition",
   "tags": [],
   "resourceType": "GMObject",
 }
