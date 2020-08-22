@@ -37,6 +37,14 @@ block_condition = new Block(
 	s_block_condition
 );
 
+block_solid = new Block(
+	"", global.Rules.Solid, 
+	function(){
+		return true;
+	},
+	s_block_solid
+);
+
 //set up grid
 blocks = [];
 blocks_w = 10;
@@ -103,9 +111,18 @@ updateRules = function(blocks, ruleDsList){
 
 //temporary stuff
 
-blocks[1][3] = block_result_jump;
-blocks[2][3] = block_while;
-blocks[3][3] = block_touching_ground_condition;
+blocks[8][3] = block_result_jump;
+blocks[2][4] = block_while;
+blocks[2][5] = block_touching_ground_condition;
+
+blocks[3][4] = block_solid;
+blocks[3][5] = block_solid;
+blocks[3][6] = block_solid;
+blocks[2][6] = block_solid;
+blocks[1][6] = block_solid;
+blocks[1][5] = block_solid;
+blocks[1][4] = block_solid;
+
 
 
 
