@@ -5,6 +5,7 @@ block_result_right = new Block(
 	 
 	function(){
 		with o_movement_parent {
+			left = false;
 			right = true;
 		}
 	}
@@ -18,6 +19,7 @@ block_result_left = new Block(
 	 
 	function(){
 		with o_movement_parent {
+			right = false;
 			left = true;
 		}
 	}
