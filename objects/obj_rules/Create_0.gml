@@ -252,16 +252,29 @@ switch room {
 	break;	
 	
 	case r_lv_08:
-	blocks[5][4] = block_result_right;
-	blocks[2][3] = block_while;
-	blocks[7][2] = block_result_jump;
-	blocks[3][6] = block_whileNot;
-	blocks[7][8] = block_whileNot2;
-	blocks[4][6] = block_touching_ground_condition;
-	blocks[3][7] = block_solid;
-	blocks[4][7] = block_solid;
-	blocks[5][6] = block_solid;	
+	blocks[6][4] = block_condition_going_right;
+	blocks[2][3] = block_result_jump;
+	blocks[7][6] = block_result_right;
 	
+	blocks[7][4] = block_while2;
+	
+	blocks[6][6] = block_condition_anykey;
+	
+	blocks[5][1] = block_while;
+	blocks[4][1] = block_result_push_solids;
+	
+	blocks[6][0] = block_solid;
+	
+	blocks[5][0] = block_solid;
+	blocks[3][1] = block_solid;
+	blocks[5][2] = block_solid;	
+	blocks[5][3] = block_solid;	
+	blocks[5][4] = block_solid;	
+	blocks[5][5] = block_solid;	
+	blocks[5][6] = block_solid;	
+	blocks[5][7] = block_solid;	
+	blocks[5][8] = block_solid;	
+	blocks[5][9] = block_solid;	
 	break;
 	
 	case r_lv_09:

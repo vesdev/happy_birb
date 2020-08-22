@@ -34,6 +34,9 @@ for(var xx = 0; xx < blocks_w ; xx++){
 				if blocks[xx][yy].blockType != global.Rules.Solid{
 					blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
 					blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
+				}else{
+					blocks[xx][yy].x = 0;
+					blocks[xx][yy].y = 0;
 				}
 			}
 			

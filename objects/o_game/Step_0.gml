@@ -4,7 +4,7 @@ if keyboard_check_pressed(ord("F")){
 	//room_goto(r_lv_07);	
 }
 
-if keyboard_check_pressed(ord("Q")){
+if keyboard_check_pressed(ord("Q")) && DEBUG{
 	room_goto_previous();	
 }
 
@@ -12,7 +12,7 @@ if keyboard_check_pressed(ord("E")){
 	room_restart();	
 }
 
-if keyboard_check_pressed(ord("R")){
+if keyboard_check_pressed(ord("R"))  && DEBUG{
 	room_goto_next();	
 }
 
