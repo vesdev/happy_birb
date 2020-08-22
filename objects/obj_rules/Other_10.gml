@@ -9,7 +9,7 @@ block_result_right = new Block(
 		}
 	}
 	,
-	 s_ui_sprite
+	 s_block_result
 );
 
 
@@ -18,5 +18,5 @@ block_condition_anytime = new Block(
 	"ANY\nTIME", global.Rules.Condition, 
 	function(){
 	return true;
-	},s_ui_sprite
+	},s_block_condition
 );
