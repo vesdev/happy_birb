@@ -77,34 +77,45 @@ updateRules = function(blocks, ruleDsList){
 			
 			if blocks[i][j] != -1{
 			
-			if blocks[i][j].rule != undefined{
-				delete blocks[i][j].rule;
+			if  blocks[i][j].rules[0] != undefined{
+			delete blocks[i][j].rules[0];
+			rules[0] = undefined;
+			}
+			if  blocks[i][j].rules[1] != undefined{
+			delete blocks[i][j].rules[1];
+			rules[1] = undefined;
 			}
 			
 			//show_debug_message( blocks[i][j].blockType)
 				if  blocks[i][j].blockType != undefined and blocks[i][j].blockType = global.Rules.Statement{
 					if i > 0 && i < blocks_w-1{
-						if blocks[i][j].rule = undefined && 
+						
+						if blocks[i][j].rules[0] = undefined && 
 						(blocks[i-1][j] != -1 && blocks[i+1][j] != -1) &&
 						(blocks[i-1][j].blockType = global.Rules.Result && blocks[i+1][j].blockType =
 						global.Rules.Condition){
-							blocks[i][j].rule = new Rule(
+							
+							blocks[i][j].rules[0]  = new Rule(
 								blocks[i-1][j].func,
 								blocks[i+1][j].func,
 								blocks[i][j].func
 							)
-							ds_list_add(ruleDsList, blocks[i][j].rule);
-						}if blocks[i][j].rule = undefined && 
+							ds_list_add(ruleDsList, blocks[i][j].rules[0]);
+						}
+						
+						if blocks[i][j].rules[1] = undefined && 
 							(blocks[i][j-1] != -1 && blocks[i][j+1] != -1) &&
 							(blocks[i][j-1].blockType = global.Rules.Result && blocks[i][j+1].blockType =
 							global.Rules.Condition){
-							blocks[i][j].rule = new Rule(
+								
+							blocks[i][j].rules[1] = new Rule(
 								blocks[i][j-1].func,
 								blocks[i][j+1].func,
 								blocks[i][j].func
 							)
-							ds_list_add(ruleDsList, blocks[i][j].rule);
+							ds_list_add(ruleDsList, blocks[i][j].rules[1]);
 						}
+						
 					}
 				}	
 			}	
