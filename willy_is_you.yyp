@@ -22,6 +22,7 @@
     {"id":{"name":"s_pixel","path":"sprites/s_pixel/s_pixel.yy",},"order":3,},
     {"id":{"name":"o_movement_parent","path":"objects/o_movement_parent/o_movement_parent.yy",},"order":4,},
     {"id":{"name":"o_input","path":"objects/o_input/o_input.yy",},"order":3,},
+    {"id":{"name":"s_block_solid","path":"sprites/s_block_solid/s_block_solid.yy",},"order":4,},
     {"id":{"name":"s_collision","path":"sprites/s_collision/s_collision.yy",},"order":1,},
     {"id":{"name":"r_init","path":"rooms/r_init/r_init.yy",},"order":0,},
     {"id":{"name":"Rule","path":"scripts/Rule/Rule.yy",},"order":1,},
