@@ -46,7 +46,14 @@ block_result_jump = new Block(
 	 s_block_result
 ); 
 
-
+global.canPush = false;
+block_result_push_solids = new Block( 
+	 "Push\nSolids", global.Rules.Result,
+	 function(){
+		global.canPush = true;
+	},
+	 s_block_result
+); 
 
 block_touching_ground_condition = new Block(
 	"On\nGround", global.Rules.Condition, 
@@ -230,7 +237,6 @@ switch room {
 	blocks[7][7] = block_while;
 	blocks[4][6] = block_condition_anykey;
 	
-	
 	blocks[0][7] = block_solid;
 	blocks[2][7] = block_solid;	
 	blocks[3][8] = block_solid;	
@@ -246,6 +252,7 @@ switch room {
 	case r_lv_08:
 	
 	blocks[5][4] = block_result_right;
+	
 	blocks[2][3] = block_while;
 	blocks[7][2] = block_result_jump;
 	blocks[3][6] = block_whileNot;
@@ -287,7 +294,7 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 
 		if blocks[x][y] != -1 {
 			
-			if blocks[x][y].blockType == global.Rules.Solid  {
+			if blocks[x][y].blockType == global.Rules.Solid && !global.canPush {
 				return false;
 			}
 			
@@ -329,7 +336,6 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 					blocks[x+x_add][y+y_add].ychange = -y_add*tile_size/12;
 					blocks[x+x_add][y+y_add].xbefore = x_add*tile_size/12;
 					blocks[x+x_add][y+y_add].ybefore = y_add*tile_size/12;
-			
 						
 						
 				}
