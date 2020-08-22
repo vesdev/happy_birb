@@ -109,6 +109,7 @@ blocks[3][3] = block_touching_ground_condition;
 
 
 
+
 updateRules(blocks, allRules);
 
 block_push = function(blocks, x,y,x_add,y_add){
