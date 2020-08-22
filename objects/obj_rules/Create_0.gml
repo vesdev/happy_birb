@@ -3,7 +3,6 @@ if live_call() return live_result;
 
 block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_block_statement);
 block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
-
 block_result_hi = new Block(
 	"say\nhi", global.Rules.Result, 
 	function(){
@@ -111,8 +110,6 @@ updateRules = function(blocks, ruleDsList){
 		}
 	}
 }
-
-
 //temporary stuff
 
 blocks[8][3] = block_result_jump;
@@ -131,14 +128,9 @@ blocks[1][4] = block_solid;
 
 blocks[5][6] = block_result_right;
 blocks[4][7] = block_condition_anytime;
-
-
 updateRules(blocks, allRules);
-
 block_push = function(blocks, x,y,x_add,y_add){
-	
 	var moved_block = -1;
-	
 	if x >= 0 && x < array_length(blocks) && y >= 0 && y < array_length(blocks[0]) &&
 	 x+x_add >= -1 && x+x_add <= array_length(blocks) && y+y_add >= -1 && y+y_add < array_length(blocks[0])
 	{
@@ -147,7 +139,6 @@ block_push = function(blocks, x,y,x_add,y_add){
 				blocks[x+x_add][y+y_add] = blocks[x][y];
 				blocks[x][y] = -1;
 				moved_block = true;
-			
 			}else{
 				moved_block = false;//block_push( blocks,x+x_add,y+x_add, x_add,y_add);
 			}
@@ -155,7 +146,5 @@ block_push = function(blocks, x,y,x_add,y_add){
 	}else{
 		moved_block = false;
 	}
-
 	return moved_block;
 }
-

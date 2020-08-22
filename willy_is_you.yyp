@@ -16,7 +16,8 @@
     {"id":{"name":"helper","path":"scripts/helper/helper.yy",},"order":1,},
     {"id":{"name":"til_collision","path":"tilesets/til_collision/til_collision.yy",},"order":0,},
     {"id":{"name":"GMLive","path":"scripts/GMLive/GMLive.yy",},"order":0,},
-    {"id":{"name":"s_block","path":"sprites/s_block/s_block.yy",},"order":6,},
+    {"id":{"name":"s_block","path":"sprites/s_block/s_block.yy",},"order":5,},
+    {"id":{"name":"s_grass_tile","path":"sprites/s_grass_tile/s_grass_tile.yy",},"order":8,},
     {"id":{"name":"s_win_condition","path":"sprites/s_win_condition/s_win_condition.yy",},"order":2,},
     {"id":{"name":"s_block_condition","path":"sprites/s_block_condition/s_block_condition.yy",},"order":3,},
     {"id":{"name":"o_win_condition","path":"objects/o_win_condition/o_win_condition.yy",},"order":2,},
@@ -84,7 +85,7 @@
     {"folderPath":"folders/Scripts/Soves.yy","order":2,"resourceVersion":"1.0","name":"Soves","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Oscar.yy","order":1,"resourceVersion":"1.0","name":"Oscar","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Soves.yy","order":2,"resourceVersion":"1.0","name":"Soves","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Sprites/Oscar/animals.yy","order":7,"resourceVersion":"1.0","name":"animals","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Oscar/animals.yy","order":6,"resourceVersion":"1.0","name":"animals","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
