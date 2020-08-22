@@ -57,6 +57,14 @@ block_condition = new Block(
 	s_block_condition
 );
 
+block_condition_anykey = new Block(
+	"any\nkey", global.Rules.Condition, 
+	function(){
+		return keyboard_check_pressed(vk_anykey);
+	},
+	s_block_condition
+);
+
 block_solid = new Block(
 	"", global.Rules.Solid, 
 	function(){
