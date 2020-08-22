@@ -72,13 +72,13 @@ draw_text(x,y,y);
 
 	if place_meeting(x, y+_y_speed, collision_object_) {
 		if !place_meeting(x, y+sign(_y_speed), collision_object_) {
-		//	y += sign(_y_speed);
+		
 		
 			y  =  y div 32;
 			y *= 32;
 			y += 32;
 			y -= sprite_get_yoffset(sprite_index);
-		
+			y += sign(_y_speed);
 		}
 			y -= 2;
 			jump_force = 0;

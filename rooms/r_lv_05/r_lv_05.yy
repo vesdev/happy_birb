@@ -34,9 +34,9 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_4C9BFB50","path":"rooms/r_lv_5/r_lv_5.yy",},
-    {"name":"inst_73F67EC","path":"rooms/r_lv_5/r_lv_5.yy",},
-    {"name":"inst_5FD82D86","path":"rooms/r_lv_5/r_lv_5.yy",},
+    {"name":"inst_4C9BFB50","path":"rooms/r_lv_05/r_lv_05.yy",},
+    {"name":"inst_73F67EC","path":"rooms/r_lv_05/r_lv_05.yy",},
+    {"name":"inst_5FD82D86","path":"rooms/r_lv_05/r_lv_05.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
@@ -64,7 +64,7 @@
     "path": "folders/Rooms/Oscar.yy",
   },
   "resourceVersion": "1.0",
-  "name": "r_lv_5",
+  "name": "r_lv_05",
   "tags": [],
   "resourceType": "GMRoom",
 }
