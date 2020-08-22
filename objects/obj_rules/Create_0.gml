@@ -154,9 +154,7 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 	
 	
 	var moved_block = -1;
-	if x >= 0 && x < array_length(blocks) && y >= 0 && y < array_length(blocks[0]) &&
-	 x+x_add >= -1 && x+x_add <= array_length(blocks) && y+y_add >= -1 && y+y_add < array_length(blocks[0])
-	{
+
 		if blocks[x][y] != -1 {
 			if x+x_add < 0 || x+x_add >= array_length(blocks) || 
 			y+y_add < 0 || y+y_add >= array_length(blocks[0]){
@@ -177,8 +175,5 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 			}
 		}
 
-	}else{
-		moved_block = false;
-	}
 	return moved_block;
 }
