@@ -53,7 +53,6 @@ blocks = [];
 blocks_w = 10;
 blocks_h = 10;
 
-
 player_grid_position = { 
 	x : 5,
 	y : 5
