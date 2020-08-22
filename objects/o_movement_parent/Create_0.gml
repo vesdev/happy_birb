@@ -19,6 +19,8 @@ left = 0;
 enable_gravity = true;
 
 
+trigger_winstate = false;
+
 
 function jump(){ 
 	

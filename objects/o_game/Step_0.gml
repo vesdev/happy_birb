@@ -9,7 +9,8 @@ if keyboard_check_pressed(ord("Q")) && DEBUG{
 }
 
 if keyboard_check_pressed(ord("E")){
-	room_restart();	
+	room_restart_custom()();
+
 }
 
 if keyboard_check_pressed(ord("R"))  && DEBUG{
@@ -17,7 +18,7 @@ if keyboard_check_pressed(ord("R"))  && DEBUG{
 }
 
 if keyboard_check_pressed(vk_space){
-	room_restart();
+	room_restart_custom();
 }
 
 global.timeScale = lerp(global.timeScale,1,.01);

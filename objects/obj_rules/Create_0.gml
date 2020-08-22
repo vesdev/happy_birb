@@ -1,14 +1,11 @@
 
-#macro SEC game_get_speed(gamespeed_fps)
-
-
 elastic_time = SEC*.2;
 elastic_change = 0;
 elastic_current = 0;
 default_easing = e_ease.easeoutelastic;
 
 
-
+yoffset_all = 250;
 
 
 

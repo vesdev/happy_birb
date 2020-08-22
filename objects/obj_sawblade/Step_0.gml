@@ -10,7 +10,7 @@ y += dir*spd*global.timeScale;
 image_angle+=spd*global.timeScale;
 
 if place_meeting(x,y,o_player){
-	room_restart();
+	room_restart_custom();
 }
 
 timer += global.timeScale;
