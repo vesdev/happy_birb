@@ -6,8 +6,8 @@ if live_call() return live_result;
 x = clamp(x,0 , room_width);
 y = clamp(y,0 , room_width);
 
-_x_input = o_input.right - o_input.left;
-_y_input = o_input.down - o_input.up;
+_x_input = right - left;
+_y_input = down -  up;
 
 if o_input.m2_pressed{
 	game_restart();	
@@ -29,3 +29,8 @@ if _x_input != 0 {
 
 
 #endregion
+
+up = 0;
+down = 0;
+right = 0;
+left = 0;
