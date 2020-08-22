@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"s_parrot","path":"sprites/s_parrot/s_parrot.yy",},"order":5,},
+    {"id":{"name":"r_lv_2","path":"rooms/r_lv_2/r_lv_2.yy",},"order":1,},
     {"id":{"name":"s_grid","path":"sprites/s_grid/s_grid.yy",},"order":0,},
     {"id":{"name":"s_block_result","path":"sprites/s_block_result/s_block_result.yy",},"order":1,},
     {"id":{"name":"o_transition","path":"objects/o_transition/o_transition.yy",},"order":5,},
@@ -26,6 +27,7 @@
     {"id":{"name":"r_lv_1","path":"rooms/r_lv_1/r_lv_1.yy",},"order":0,},
     {"id":{"name":"monkey","path":"sprites/monkey/monkey.yy",},"order":3,},
     {"id":{"name":"s_pixel","path":"sprites/s_pixel/s_pixel.yy",},"order":3,},
+    {"id":{"name":"r_lv_3","path":"rooms/r_lv_3/r_lv_3.yy",},"order":2,},
     {"id":{"name":"panda","path":"sprites/panda/panda.yy",},"order":4,},
     {"id":{"name":"o_movement_parent","path":"objects/o_movement_parent/o_movement_parent.yy",},"order":4,},
     {"id":{"name":"o_input","path":"objects/o_input/o_input.yy",},"order":3,},
@@ -33,6 +35,7 @@
     {"id":{"name":"s_collision","path":"sprites/s_collision/s_collision.yy",},"order":1,},
     {"id":{"name":"giraffe","path":"sprites/giraffe/giraffe.yy",},"order":1,},
     {"id":{"name":"r_init","path":"rooms/r_init/r_init.yy",},"order":0,},
+    {"id":{"name":"r_lv_4","path":"rooms/r_lv_4/r_lv_4.yy",},"order":3,},
     {"id":{"name":"snake","path":"sprites/snake/snake.yy",},"order":9,},
     {"id":{"name":"Rule","path":"scripts/Rule/Rule.yy",},"order":1,},
     {"id":{"name":"pig","path":"sprites/pig/pig.yy",},"order":7,},
@@ -61,6 +64,9 @@
   "RoomOrder": [
     {"name":"r_init","path":"rooms/r_init/r_init.yy",},
     {"name":"r_lv_1","path":"rooms/r_lv_1/r_lv_1.yy",},
+    {"name":"r_lv_2","path":"rooms/r_lv_2/r_lv_2.yy",},
+    {"name":"r_lv_3","path":"rooms/r_lv_3/r_lv_3.yy",},
+    {"name":"r_lv_4","path":"rooms/r_lv_4/r_lv_4.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -192,6 +198,13 @@
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"neko.dll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.n","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"regexp.ndll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.exe","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive.html","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.n","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"neko.dll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"regexp.ndll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gcmt-dll.dll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"std.ndll","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.0.529",

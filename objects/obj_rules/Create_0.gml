@@ -1,8 +1,8 @@
 if live_call() return live_result;
 
 
-block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_block_statement);
-block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
+block_while = new Block("WHILE", global.Rules.Statement, global.Rules.While, s_block_statement);
+block_whileNot = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
 block_result_hi = new Block(
 	"say\nhi", global.Rules.Result, 
 	function(){

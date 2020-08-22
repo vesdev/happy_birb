@@ -13,6 +13,18 @@ block_result_right = new Block(
 );
 
 
+block_result_right = new Block( 
+	 "Go\nLeft", global.Rules.Result,
+	 
+	function(){
+		with o_movement_parent {
+			left = true;
+		}
+	}
+	,
+	 s_block_result
+);
+
 
 block_condition_anytime = new Block(
 	"ANY\nTIME", global.Rules.Condition, 
