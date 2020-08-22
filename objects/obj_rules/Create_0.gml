@@ -69,7 +69,9 @@ for(var i = 0; i < blocks_w ; i++){
 
 
 allRules = ds_list_create();
+prevRules = 0;
 updateRules = function(blocks, ruleDsList){
+	var ruleCount = 0;
 	ds_list_clear(ruleDsList);
 	for(var i = 1; i < blocks_w-1 ; i++){
 		for(var j = 1; j < blocks_h-1 ; j++){
@@ -100,6 +102,7 @@ updateRules = function(blocks, ruleDsList){
 								blocks[i][j].func
 							)
 							ds_list_add(ruleDsList, blocks[i][j].rules[0]);
+							ruleCount++;
 						}
 						
 						if blocks[i][j].rules[1] = undefined && 
@@ -113,6 +116,7 @@ updateRules = function(blocks, ruleDsList){
 								blocks[i][j].func
 							)
 							ds_list_add(ruleDsList, blocks[i][j].rules[1]);
+							ruleCount++;
 						}
 						
 					}
@@ -120,6 +124,7 @@ updateRules = function(blocks, ruleDsList){
 			}	
 		}
 	}
+	return ruleCount;
 }
 //temporary stuff
 
