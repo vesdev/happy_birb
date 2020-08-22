@@ -236,18 +236,14 @@ switch room {
 	
 	case r_lv_09:
 	
-	
-	
+		
 	blocks[3][2] = block_result_jump;
 	blocks[3][4] = block_result_right;
 	
 	blocks[2][7] = block_resolution_gravity;
 	blocks[2][4] = block_condition_going_right;
 
-
 	blocks[5][7] = block_while;
-
-
 
 	blocks[9][7] = block_whileNot;
 	blocks[9][8] = block_touching_ground_condition;
