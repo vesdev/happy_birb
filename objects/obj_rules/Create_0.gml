@@ -102,14 +102,13 @@ updateRules(blocks, allRules);
 
 block_push = function(blocks, x,y,x_add,y_add){
 	
-	var moved_block = true;
+	var moved_block = false;
 	if blocks[x][y] != -1 {
 		if blocks[x+ x_add][y + y_add] = -1 { 
 			blocks[x+x_add][y+y_add] = blocks[x][y];
 			blocks[x][y] = -1;
 			moved_block = true;
 		}else{
-			
 			moved_block = false;//block_push( blocks,x+x_add,y+x_add, x_add,y_add);
 		}
 	}
