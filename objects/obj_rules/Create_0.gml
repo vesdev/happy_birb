@@ -117,8 +117,8 @@ allRules = ds_list_create();
 prevRules = 0;
 updateRules = function(blocks, ruleDsList){
 	ds_list_clear(ruleDsList);
-	for(var i = 1; i < blocks_w-1 ; i++){
-		for(var j = 1; j < blocks_h-1 ; j++){
+	for(var i = 0; i < blocks_w; i++){
+		for(var j = 0; j < blocks_h; j++){
 			
 			if blocks[i][j] != -1{
 			
@@ -133,7 +133,7 @@ updateRules = function(blocks, ruleDsList){
 			
 			//show_debug_message( blocks[i][j].blockType)
 				if  blocks[i][j].blockType != undefined and blocks[i][j].blockType = global.Rules.Statement{
-					if i > 0 && i < blocks_w-1{
+					if i >= 0 && i < blocks_w{
 						
 						if blocks[i][j].rules[0] = undefined && 
 						(blocks[i-1][j] != -1 && blocks[i+1][j] != -1) &&
@@ -329,8 +329,8 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 					moved_block = true;
 					
 					blocks[x+x_add][y+y_add].timer = 0;
-				//blocks[x+x_add][y+y_add].x = -x_add*tile_size;
-				 //	blocks[x+x_add][y+y_add].y = -y_add*tile_size;
+					blocks[x+x_add][y+y_add].x = -x_add*tile_size;
+				 	blocks[x+x_add][y+y_add].y = -y_add*tile_size;
 				
 					blocks[x+x_add][y+y_add].xchange = -x_add*tile_size/12;
 					blocks[x+x_add][y+y_add].ychange = -y_add*tile_size/12;
