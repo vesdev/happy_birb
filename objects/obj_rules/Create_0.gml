@@ -1,3 +1,5 @@
+if live_call() return live_result;
+
 
 block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_block_statement);
 block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
@@ -10,10 +12,12 @@ block_result_hi = new Block(
 	s_block_result
 );
 
+
 event_user(0);
 
+
 block_result_jump = new Block( 
-	 "Player\nJump", global.Rules.Result,
+	 "You\nJump", global.Rules.Result,
 	 o_movement_parent.jump,
 	 s_block_result
 ); 
@@ -115,6 +119,7 @@ blocks[8][3] = block_result_jump;
 blocks[2][4] = block_while;
 blocks[2][5] = block_touching_ground_condition;
 
+/*
 blocks[3][4] = block_solid;
 blocks[3][5] = block_solid;
 blocks[3][6] = block_solid;
@@ -122,9 +127,10 @@ blocks[2][6] = block_solid;
 blocks[1][6] = block_solid;
 blocks[1][5] = block_solid;
 blocks[1][4] = block_solid;
+*/
 
-
-
+blocks[5][6] = block_result_right;
+blocks[4][7] = block_condition_anytime;
 
 
 updateRules(blocks, allRules);
