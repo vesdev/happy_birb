@@ -135,13 +135,13 @@ blocks[4][7] = block_condition_anytime;
 
 switch room { 
 	
-	case r_lv_1:
+	case r_lv_01:
 	blocks[5][6] = block_result_right;
 	blocks[2][4] = block_while;
 	blocks[2][5] = block_touching_ground_condition;
 	break;
 	
-	case r_lv_2:
+	case r_lv_02:
 	
 	blocks[8][3] = block_result_jump;
 	blocks[5][6] = block_result_right;
@@ -150,7 +150,7 @@ switch room {
 	blocks[7][8] = block_result_left;
 	break;
 	
-	case r_lv_3:
+	case r_lv_03:
 
 	blocks[8][3] = block_result_jump;
 	blocks[5][6] = block_result_right;
@@ -160,7 +160,7 @@ switch room {
 	
 	break;
 	
-	case r_lv_4:
+	case r_lv_04:
 
 	blocks[8][3] = block_result_jump;
 	blocks[5][6] = block_result_right;
@@ -170,7 +170,7 @@ switch room {
 	
 	break;
 	
-	case r_lv_5:
+	case r_lv_05:
 	blocks[8][3] = block_result_jump;
 	blocks[5][6] = block_result_right;
 	blocks[2][4] = block_while;
