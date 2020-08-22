@@ -1,5 +1,7 @@
 //if live_call() return live_result;
 //window_set_size(1280,720)
+
+
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var w = 32;
