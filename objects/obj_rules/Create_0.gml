@@ -32,12 +32,28 @@ block_result_hi = new Block(
 event_user(0);
 
 
+block_result_timeslow = new Block( 
+	"Time\nSlow", global.Rules.Result,
+	function(){
+		global.timeScale = .01;
+	},
+	 s_block_result
+); 
+
 block_result_jump = new Block( 
 	 "You\nJump", global.Rules.Result,
 	 o_movement_parent.jump,
 	 s_block_result
 ); 
 
+global.canPush = false;
+block_result_push_solids = new Block( 
+	 "Push\nSolids", global.Rules.Result,
+	 function(){
+		global.canPush = true;
+	},
+	 s_block_result
+); 
 
 block_touching_ground_condition = new Block(
 	"On\nGround", global.Rules.Condition, 
@@ -53,6 +69,14 @@ block_condition = new Block(
 	"true", global.Rules.Condition, 
 	function(){
 		return true;
+	},
+	s_block_condition
+);
+
+block_condition_anykey = new Block(
+	"any\nkey", global.Rules.Condition, 
+	function(){
+		return keyboard_check(vk_anykey);
 	},
 	s_block_condition
 );
@@ -93,8 +117,8 @@ allRules = ds_list_create();
 prevRules = 0;
 updateRules = function(blocks, ruleDsList){
 	ds_list_clear(ruleDsList);
-	for(var i = 1; i < blocks_w-1 ; i++){
-		for(var j = 1; j < blocks_h-1 ; j++){
+	for(var i = 0; i < blocks_w; i++){
+		for(var j = 0; j < blocks_h; j++){
 			
 			if blocks[i][j] != -1{
 			
@@ -109,7 +133,7 @@ updateRules = function(blocks, ruleDsList){
 			
 			//show_debug_message( blocks[i][j].blockType)
 				if  blocks[i][j].blockType != undefined and blocks[i][j].blockType = global.Rules.Statement{
-					if i > 0 && i < blocks_w-1{
+					if i >= 0 && i < blocks_w{
 						
 						if blocks[i][j].rules[0] = undefined && 
 						(blocks[i-1][j] != -1 && blocks[i+1][j] != -1) &&
@@ -209,20 +233,26 @@ switch room {
 	case r_lv_07:
 	
 	blocks[5][4] = block_result_right;
-	blocks[2][3] = block_while;
 	blocks[7][2] = block_result_jump;
-	blocks[3][6] = block_whileNot;
-	blocks[7][8] = block_whileNot2;
-	blocks[4][6] = block_touching_ground_condition;
-	blocks[3][7] = block_solid;
-	blocks[4][7] = block_solid;
-	blocks[5][6] = block_solid;	
+	blocks[7][7] = block_while;
+	blocks[4][6] = block_condition_anykey;
+	
+	blocks[0][7] = block_solid;
+	blocks[2][7] = block_solid;	
+	blocks[3][8] = block_solid;	
+	blocks[3][9] = block_solid;	
+	
+	blocks[0][8] = block_result_timeslow;
+	blocks[1][8] = block_whileNot;
+	blocks[2][8] = block_touching_ground_condition;
+	blocks[1][9] = block_touching_ground_condition;
 	
 	break;	
 	
 	case r_lv_08:
 	
 	blocks[5][4] = block_result_right;
+	
 	blocks[2][3] = block_while;
 	blocks[7][2] = block_result_jump;
 	blocks[3][6] = block_whileNot;
@@ -290,7 +320,7 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 
 		if blocks[x][y] != -1 {
 			
-			if blocks[x][y].blockType == global.Rules.Solid  {
+			if blocks[x][y].blockType == global.Rules.Solid && !global.canPush {
 				return false;
 			}
 			
@@ -325,14 +355,13 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 					moved_block = true;
 					
 					blocks[x+x_add][y+y_add].timer = 0;
-				//blocks[x+x_add][y+y_add].x = -x_add*tile_size;
-				 //	blocks[x+x_add][y+y_add].y = -y_add*tile_size;
+					blocks[x+x_add][y+y_add].x = -x_add*tile_size;
+				 	blocks[x+x_add][y+y_add].y = -y_add*tile_size;
 				
 					blocks[x+x_add][y+y_add].xchange = -x_add*tile_size/12;
 					blocks[x+x_add][y+y_add].ychange = -y_add*tile_size/12;
 					blocks[x+x_add][y+y_add].xbefore = x_add*tile_size/12;
 					blocks[x+x_add][y+y_add].ybefore = y_add*tile_size/12;
-			
 						
 						
 				}

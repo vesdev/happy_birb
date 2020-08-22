@@ -30,10 +30,13 @@ for(var xx = 0; xx < blocks_w ; xx++){
 					blocks[xx][yy].timer++;
 					
 				}
-				*/			
-				blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
-				blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
-			}			
+				*/
+				if blocks[xx][yy].blockType != global.Rules.Solid{
+					blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
+					blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
+				}
+			}
+			
 			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size+3+blocks[xx][yy].x, yy*tile_size+_yoff+3+blocks[xx][yy].y,1,1,0,c_black,.6);
 		}
 	}
