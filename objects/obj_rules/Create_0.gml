@@ -123,9 +123,61 @@ updateRules = function(blocks, ruleDsList){
 }
 //temporary stuff
 
-blocks[8][3] = block_result_jump;
+
+
 blocks[2][4] = block_while;
-blocks[2][5] = block_touching_ground_condition;
+
+blocks[5][6] = block_result_right;
+blocks[4][7] = block_condition_anytime;
+
+switch room { 
+	
+	case r_lv_1:
+	blocks[5][6] = block_result_right;
+	blocks[2][4] = block_while;
+	blocks[2][5] = block_touching_ground_condition;
+	break;
+	
+	case r_lv_2:
+	
+	blocks[8][3] = block_result_jump;
+	blocks[5][6] = block_result_right;
+	blocks[2][4] = block_while;
+	blocks[2][5] = block_touching_ground_condition;
+	blocks[7][8] = block_result_left;
+	break;
+	
+	case r_lv_3:
+
+	blocks[8][3] = block_result_jump;
+	blocks[5][6] = block_result_right;
+	blocks[2][4] = block_while;
+	blocks[2][5] = block_touching_ground_condition;
+
+	
+	break;
+	
+	case r_lv_4:
+
+	blocks[8][3] = block_result_jump;
+	blocks[5][6] = block_result_right;
+	blocks[2][4] = block_while;
+	blocks[2][5] = block_touching_ground_condition;
+
+	
+	break;
+	
+	case r_lv_5:
+	blocks[8][3] = block_result_jump;
+	blocks[5][6] = block_result_right;
+	blocks[2][4] = block_while;
+	blocks[2][5] = block_touching_ground_condition;
+	blocks[5][6] = block_result_left;
+	blocks[5][6] = block_condition_anytime;
+	break;
+	
+}
+
 
 /*
 blocks[3][4] = block_solid;
@@ -137,8 +189,7 @@ blocks[1][5] = block_solid;
 blocks[1][4] = block_solid;
 */
 
-blocks[5][6] = block_result_right;
-blocks[4][7] = block_condition_anytime;
+
 updateRules(blocks, allRules);
 
 block_push = function(blocks, x,y,x_add,y_add, selfFunc){

@@ -22,12 +22,19 @@ function move(_bounce){
 	if (live_call()) return live_result;
 //	if speed_ = 0 exit;
 
+
+
 	tilemap = layer_tilemap_get_id("Collisions");
 	 //enable bouncing off walls
 
 	_x_speed = lengthdir_x(speed_, direction_);
 	_y_speed = lengthdir_y(speed_, direction_);
 
+	var xdiv = x div 32;
+	var ydiv = y div 32;
+	var xmult = xdiv * 32;
+	var ymult = ydiv * 32;
+	//y =  ymult+32-sprite_get_yoffset(sprite_index);
 
 
 
@@ -50,7 +57,7 @@ function move(_bounce){
 	}
 	//VERTICLE TILE COLLISIONS
 	
-	
+
 	
 
 if jump_force > 0 { 
@@ -59,7 +66,27 @@ if jump_force > 0 {
 }
 
 
+	var collision_object_ = o_plataform_parent;
 
+draw_text(x,y,y);
+
+	if place_meeting(x, y+_y_speed, collision_object_) {
+		if !place_meeting(x, y+sign(_y_speed), collision_object_) {
+		//	y += sign(_y_speed);
+		
+			y  =  y div 32;
+			y *= 32;
+			y += 32;
+			y -= sprite_get_yoffset(sprite_index);
+		
+		}
+			y -= 2;
+			jump_force = 0;
+			gravity_y_add  = 0;
+			gravity_speed_ = 0;
+			touching_ground = true;
+			exit;
+	}
 
 		var bbox_side = bbox_bottom;	
 	if (tilemap_get_at_pixel(tilemap,bbox_right, bbox_side+1) = 0) and
@@ -78,11 +105,6 @@ if jump_force > 0 {
 			gravity_speed_ = clamp(gravity_speed_,0 , 8); 
 			y += gravity_speed_;
 		}else{ 
-			var xdiv = x div 32;
-			var ydiv = y div 32;
-			var xmult = xdiv * 32;
-			var ymult = ydiv * 32;
-			//y =  ymult+32-sprite_get_yoffset(sprite_index);
 			
 			y  =  y div 32;
 			y *= 32;
@@ -104,16 +126,13 @@ if jump_force > 0 {
 	
 
 
-	if !place_meeting(x, y+sign(_y_speed), o_plataform) {
-		y += sign(_y_speed);
-	}
-	
 	
 
 	if (_y_speed > 0)  bbox_side = bbox_bottom; else bbox_side = bbox_top;
 	if (tilemap_get_at_pixel(tilemap,bbox_left,bbox_side+_y_speed) != 0) ||
 	(tilemap_get_at_pixel(tilemap,bbox_right, bbox_side+_y_speed) != 0)
 	{
+		
 		
 			gravity_y_add = 0;
 			gravity_speed_ = 0;	
@@ -124,20 +143,13 @@ if jump_force > 0 {
 			//snaps to a 32 to 32 grid
 			y = y - (y mod 32) + 32 - (bbox_bottom - y)-1;
 			_y_speed = -(_y_speed)*bounce_amount_;
-			
 
 		}else{
-
 			y = y-(y mod 32) - (bbox_top - y);
-
 			_y_speed = -(_y_speed)*bounce_amount_;
 
 		}
-
 	}else{
-
-	
-
 		y += _y_speed;
 	
 	}
