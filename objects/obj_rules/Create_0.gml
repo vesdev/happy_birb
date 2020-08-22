@@ -129,20 +129,43 @@ blocks[1][4] = block_solid;
 blocks[5][6] = block_result_right;
 blocks[4][7] = block_condition_anytime;
 updateRules(blocks, allRules);
-block_push = function(blocks, x,y,x_add,y_add){
+
+block_push = function(blocks, x,y,x_add,y_add, selfFunc){
+	
+	
+	if x < 0 || x >= array_length(blocks){
+		return false;
+	}
+	
+	if y < 0 || y >= array_length(blocks[0]){
+		return false;
+	}
+	
+	
 	var moved_block = -1;
 	if x >= 0 && x < array_length(blocks) && y >= 0 && y < array_length(blocks[0]) &&
 	 x+x_add >= -1 && x+x_add <= array_length(blocks) && y+y_add >= -1 && y+y_add < array_length(blocks[0])
 	{
 		if blocks[x][y] != -1 {
-			if blocks[x+ x_add][y + y_add] = -1 { 
+			if x+x_add < 0 || x+x_add >= array_length(blocks) || 
+			y+y_add < 0 || y+y_add >= array_length(blocks[0]){
+				moved_block = false;
+				
+			}else if blocks[x+ x_add][y + y_add] = -1 { 
+				
 				blocks[x+x_add][y+y_add] = blocks[x][y];
 				blocks[x][y] = -1;
 				moved_block = true;
 			}else{
-				moved_block = false;//block_push( blocks,x+x_add,y+x_add, x_add,y_add);
+				moved_block = selfFunc( blocks,x+x_add,y+y_add, x_add,y_add, selfFunc);
+				if moved_block = 1 || moved_block = -1{
+					blocks[x+x_add][y+y_add] = blocks[x][y];
+					blocks[x][y] = -1;
+					moved_block = true;
+				}
 			}
 		}
+
 	}else{
 		moved_block = false;
 	}

@@ -31,7 +31,7 @@ if o_input.up_pressed  {
 	
 	//block_push = function(blocks, x,y,x_add,y_add){
 	var s = block_push(blocks,player_grid_position.x,player_grid_position.y-1,
-	0,-1 );
+	0,-1,block_push  );
 	
 	if s = 1 || s = -1 { 
 			player_grid_position.y -= 1;
@@ -45,7 +45,7 @@ if o_input.up_pressed  {
 	
 if o_input.down_pressed  {
 	var s = block_push(blocks,player_grid_position.x,player_grid_position.y+1,
-	0,1 );
+	0,1,block_push  );
 	if s = 1 || s = -1 { 
 			player_grid_position.y += 1;
 		if s != -1 {
@@ -57,7 +57,7 @@ if o_input.down_pressed  {
 }
 if o_input.left_pressed  {
 	var s = block_push(blocks,player_grid_position.x-1,player_grid_position.y,
-	-1,0 )
+	-1,0,block_push )
 		if s = 1 || s = -1 { 
 		
 		player_grid_position.x -= 1;
@@ -70,7 +70,7 @@ if o_input.left_pressed  {
 }
 if o_input.right_pressed  {
 	var s = block_push(blocks,player_grid_position.x+1,player_grid_position.y,
-	1,0 )
+	1,0,block_push  )
 	if s = 1 || s = -1 { 
 		player_grid_position.x += 1;	
 		if s != -1 {
