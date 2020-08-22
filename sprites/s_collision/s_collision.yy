@@ -26,6 +26,7 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"e9a8d907-d260-4ffc-9fe4-57c4f3778845","path":"sprites/s_collision/s_collision.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"e9a8d907-d260-4ffc-9fe4-57c4f3778845","path":"sprites/s_collision/s_collision.yy",},"LayerId":{"name":"8645b779-d085-45c2-8058-0ab3c41da7b3","path":"sprites/s_collision/s_collision.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"e9a8d907-d260-4ffc-9fe4-57c4f3778845","path":"sprites/s_collision/s_collision.yy",},"LayerId":{"name":"115baaff-53de-4133-aa0d-3a206c70717f","path":"sprites/s_collision/s_collision.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_collision","path":"sprites/s_collision/s_collision.yy",},"resourceVersion":"1.0","name":"e9a8d907-d260-4ffc-9fe4-57c4f3778845","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

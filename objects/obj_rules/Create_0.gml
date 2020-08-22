@@ -1,6 +1,8 @@
 if live_call() return live_result;
 
 
+
+
 block_while = new Block("WHILE", global.Rules.Statement, global.Rules.While, s_block_statement);
 block_whileNot = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
 block_result_hi = new Block(
@@ -69,6 +71,7 @@ for(var i = 0; i < blocks_w ; i++){
 
 
 allRules = ds_list_create();
+prevRules = 0;
 updateRules = function(blocks, ruleDsList){
 	ds_list_clear(ruleDsList);
 	for(var i = 1; i < blocks_w-1 ; i++){
