@@ -133,10 +133,10 @@ updateRules = function(blocks, ruleDsList){
 			
 			//show_debug_message( blocks[i][j].blockType)
 				if  blocks[i][j].blockType != undefined and blocks[i][j].blockType = global.Rules.Statement{
-					if i >= 0 && i < blocks_w{
-						
+					if i > 0 && i < blocks_w-1{
+					
 						if blocks[i][j].rules[0] = undefined && 
-						(blocks[i-1][j] != -1 && blocks[i+1][j] != -1) &&
+						(blocks[i-1][j] != -1 && blocks[i+1][j] != -1)&&
 						(blocks[i-1][j].blockType = global.Rules.Result && blocks[i+1][j].blockType =
 						global.Rules.Condition){
 							
@@ -147,7 +147,9 @@ updateRules = function(blocks, ruleDsList){
 							)
 							ds_list_add(ruleDsList, blocks[i][j].rules[0]);
 						}
-						
+					}	
+					
+					if j > 0 && j < blocks_h-1{
 						if blocks[i][j].rules[1] = undefined && 
 							(blocks[i][j-1] != -1 && blocks[i][j+1] != -1) &&
 							(blocks[i][j-1].blockType = global.Rules.Result && blocks[i][j+1].blockType =
