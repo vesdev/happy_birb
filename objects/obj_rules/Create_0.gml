@@ -252,9 +252,7 @@ switch room {
 	break;	
 	
 	case r_lv_08:
-	
 	blocks[5][4] = block_result_right;
-	
 	blocks[2][3] = block_while;
 	blocks[7][2] = block_result_jump;
 	blocks[3][6] = block_whileNot;

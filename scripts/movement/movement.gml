@@ -61,10 +61,10 @@ if jump_force > 0 {
 	jump_force = approach(jump_force,0,.1);
 	y -= jump_force;
 }
+show_debug_message(right)
 
 
 	var collision_object_ = o_plataform_parent;
-
 
 
 	if place_meeting(x, y+_y_speed, collision_object_) {
@@ -152,6 +152,8 @@ if jump_force > 0 {
 		y += _y_speed;
 	
 	}
+	
 	speed_ = point_distance(0, 0, _x_speed, _y_speed);
 	direction_ = point_direction(0, 0, _x_speed, _y_speed);
+	
 }

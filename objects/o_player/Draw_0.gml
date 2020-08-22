@@ -8,7 +8,7 @@ if touching_ground {
 
 }else{
 	sprite_index = s_parrot_control;
-}
+} 
 
 
 draw_self();

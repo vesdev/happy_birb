@@ -14,7 +14,11 @@ down = 0;
 right = 0;
 left = 0;
 
+
+
 enable_gravity = true;
+
+
 
 function jump(){ 
 	
