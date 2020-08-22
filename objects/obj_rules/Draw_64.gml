@@ -17,17 +17,20 @@ var _cm = matrix_build( display_get_gui_width()-blocks_w/2*tile_size-tile_size/2
 	0, 0, 0, 0, .8, .8, 1);
 matrix_set(matrix_view,matrix_multiply(vm,_cm));
 
-draw_set_alpha(.9);
-
 var _yoff;
 
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
 		draw_sprite_ext(s_grid, 0, xx*tile_size, yy*tile_size+_yoff,1,1,0,c_white,.5);
-			
+		if blocks[xx][yy] != -1{
+			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size, yy*tile_size+_yoff+5,1,1,0,c_black,.6);
+		}
 	}
 }
+
+_yoff = sin(player_grid_position.x+current_time*0.001);
+draw_sprite_ext(s_ui_sprite,0,player_grid_position.x*tile_size,player_grid_position.y*tile_size+_yoff+5,1,1,0,c_black,.6);
 
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
@@ -44,6 +47,7 @@ for(var xx = 0; xx < blocks_w ; xx++){
 _yoff = sin(player_grid_position.x+current_time*0.001);
 draw_sprite(s_ui_sprite,0,player_grid_position.x*tile_size,player_grid_position.y*tile_size+_yoff);
 
+
 if o_input.up_pressed  {
 		//block_push = function(blocks, x,y,x_add,y_add){
 		var s = block_push(blocks,player_grid_position.x,player_grid_position.y-1,
@@ -51,7 +55,7 @@ if o_input.up_pressed  {
 	
 		if s = 1 || s = -1 { 
 				player_grid_position.y -= 1;
-			
+				
 		if s != -1 {
 			var C = updateRules(blocks,allRules);
 			if C > prevRules {
@@ -62,6 +66,7 @@ if o_input.up_pressed  {
 				prevRules = C;
 			}
 			audio_play_sound(snd_push, 0, false);
+			
 		}else{
 			audio_play_sound(snd_move, 0, false);
 		}
@@ -136,7 +141,6 @@ if o_input.right_pressed  {
 		}
 	}
 }
-
 
 
 
