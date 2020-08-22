@@ -1,11 +1,9 @@
-if live_call() return live_result;
+//if live_call() return live_result;
 //window_set_size(1280,720)
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var w = 32;
 var h = 32;
-sprite_set_live(s_grid,1);
-sprite_set_live(s_ui_sprite,1);
 
 draw_set_font(f_kenny);
 
@@ -18,7 +16,6 @@ for(var xx = 0; xx < blocks_w ; xx++){
 			
 		if blocks[xx][yy] != -1{
 			draw_sprite(blocks[xx][yy].sprite, 0, xx*tile_size, yy*tile_size);
-			
 			draw_text_transformed_color(xx*tile_size+tile_size/2, yy*tile_size+tile_size/2, blocks[xx][yy].name, 
 			.2, .2, 
 			0
@@ -77,8 +74,6 @@ if o_input.right_pressed  {
 		if s != -1 {
 			updateRules(blocks,allRules);
 		}
-
-
 	}
 }
 
