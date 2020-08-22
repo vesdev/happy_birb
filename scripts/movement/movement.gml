@@ -61,7 +61,7 @@ if jump_force > 0 {
 	jump_force = approach(jump_force,0,.1);
 	y -= jump_force;
 }
-show_debug_message(right)
+
 
 
 	var collision_object_ = o_plataform_parent;
