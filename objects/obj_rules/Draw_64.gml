@@ -50,6 +50,7 @@ player_grid_position.draw_y = lerp(player_grid_position.draw_y,0,.4);
 
 draw_sprite_ext(s_block_player_control,0,player_grid_position.x*tile_size+3+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+3+player_grid_position.draw_y,1,1,0,c_black,.6);
 
+
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
@@ -60,6 +61,18 @@ for(var xx = 0; xx < blocks_w ; xx++){
 			draw_sprite(blocks[xx][yy].sprite, 
 			0,xx*tile_size+blocks[xx][yy].x, 
 			yy*tile_size+_yoff+blocks[xx][yy].y);
+			
+		}
+	}
+}
+gpu_set_tex_filter(true);
+
+for(var xx = 0; xx < blocks_w ; xx++){
+	for(var yy = 0; yy < blocks_h ; yy++){
+		_yoff = sin(xx+current_time*0.001);
+		if blocks[xx][yy] != -1{
+			
+			//	if blocks[x][y].timer = 0;
 			draw_text_transformed_color(xx*tile_size+tile_size/2+blocks[xx][yy].x, yy*tile_size+tile_size/2+_yoff+blocks[xx][yy].y, blocks[xx][yy].name, 
 			.2, .2, 
 			0
@@ -73,6 +86,10 @@ for(var xx = 0; xx < blocks_w ; xx++){
 		}
 	}
 }
+
+gpu_set_tex_filter(false);
+
+
 _yoff = sin(player_grid_position.x+current_time*0.001);
 draw_sprite(s_block_player_control,0,player_grid_position.x*tile_size+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+player_grid_position.draw_y);
 
