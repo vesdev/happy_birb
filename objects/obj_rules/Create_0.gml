@@ -126,6 +126,7 @@ blocks[1][4] = block_solid;
 
 
 
+
 updateRules(blocks, allRules);
 
 block_push = function(blocks, x,y,x_add,y_add){
