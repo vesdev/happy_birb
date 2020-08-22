@@ -103,12 +103,11 @@ if jump_force > 0 {
 	}
 	
 
-if place_meeting(x, y, o_plataform) {
+
 	if !place_meeting(x, y+sign(_y_speed), o_plataform) {
 		y += sign(_y_speed);
 	}
 	
-}
 	
 
 	if (_y_speed > 0)  bbox_side = bbox_bottom; else bbox_side = bbox_top;
