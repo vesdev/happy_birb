@@ -67,14 +67,12 @@ updateRules = function(blocks, ruleDsList){
 				delete blocks[i][j].rule;
 			}
 			
-			show_debug_message( blocks[i][j].blockType)
-		
+			//show_debug_message( blocks[i][j].blockType)
 				if  blocks[i][j].blockType != undefined and blocks[i][j].blockType = global.Rules.Statement{
-				
 					if i > 0 && i < blocks_w-1{
-					
 						if blocks[i][j].rule = undefined && 
-						(blocks[i-1][j].blockType = global.Rules.Result && blocks[i+1][j].blockType = global.Rules.Condition){
+						(blocks[i-1][j].blockType = global.Rules.Result && blocks[i+1][j].blockType =
+						global.Rules.Condition){
 							blocks[i][j].rule = new Rule(
 								blocks[i-1][j].func,
 								blocks[i+1][j].func,
@@ -82,13 +80,25 @@ updateRules = function(blocks, ruleDsList){
 							)
 							ds_list_add(ruleDsList, blocks[i][j].rule);
 						}
-					}	
+						
+						
+						if blocks[i][j].rule = undefined && 
+							(blocks[i][j-1].blockType = global.Rules.Result && blocks[i][j+1].blockType =
+							global.Rules.Condition){
+							blocks[i][j].rule = new Rule(
+								blocks[i][j-1].func,
+								blocks[i][j+1].func,
+								blocks[i][j].func
+							)
+							ds_list_add(ruleDsList, blocks[i][j].rule);
+						}
+					}
 				}	
-			}
+			}	
 		}
 	}
-	
 }
+
 
 //temporary stuff
 
@@ -102,17 +112,20 @@ updateRules(blocks, allRules);
 
 block_push = function(blocks, x,y,x_add,y_add){
 	
-	var moved_block = true;
+	var moved_block = -1;
+	
 	if blocks[x][y] != -1 {
 		if blocks[x+ x_add][y + y_add] = -1 { 
 			blocks[x+x_add][y+y_add] = blocks[x][y];
 			blocks[x][y] = -1;
 			moved_block = true;
-		}else{
 			
+		}else{
 			moved_block = false;//block_push( blocks,x+x_add,y+x_add, x_add,y_add);
 		}
 	}
+	
+
 	return moved_block;
 }
 
