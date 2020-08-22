@@ -13,7 +13,7 @@ block_result_right = new Block(
 );
 
 
-block_result_right = new Block( 
+block_result_left = new Block( 
 	 "Go\nLeft", global.Rules.Result,
 	 
 	function(){

@@ -40,6 +40,7 @@
     {"id":{"name":"r_lv_4","path":"rooms/r_lv_4/r_lv_4.yy",},"order":3,},
     {"id":{"name":"snake","path":"sprites/snake/snake.yy",},"order":9,},
     {"id":{"name":"Rule","path":"scripts/Rule/Rule.yy",},"order":1,},
+    {"id":{"name":"o_plataform_parent","path":"objects/o_plataform_parent/o_plataform_parent.yy",},"order":8,},
     {"id":{"name":"pig","path":"sprites/pig/pig.yy",},"order":7,},
     {"id":{"name":"f_kenny","path":"fonts/f_kenny/f_kenny.yy",},"order":0,},
     {"id":{"name":"rm_testing","path":"rooms/rm_testing/rm_testing.yy",},"order":0,},

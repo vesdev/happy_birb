@@ -7,10 +7,7 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "o_plataform_parent",
-    "path": "objects/o_plataform_parent/o_plataform_parent.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -31,7 +28,7 @@
     "path": "folders/Objects/Oscar.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_plataform",
+  "name": "o_plataform_parent",
   "tags": [],
   "resourceType": "GMObject",
 }
