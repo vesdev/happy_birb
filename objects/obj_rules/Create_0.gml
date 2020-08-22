@@ -1,6 +1,6 @@
 
-block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_ui_sprite);
-block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_ui_sprite);
+block_while = new Block("while", global.Rules.Statement, global.Rules.While, s_block_statement);
+block_whileNot = new Block("while\nnot", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
 
 event_user(0);
 
@@ -9,7 +9,7 @@ block_result_hi = new Block(
 	function(){
 		show_debug_message("hi");
 	},
-	s_ui_sprite
+	s_block_result
 );
 
 
@@ -17,7 +17,7 @@ block_result_hi = new Block(
 block_result_jump = new Block( 
 	 "Player\nJump", global.Rules.Result,
 	 o_movement_parent.jump,
-	 s_ui_sprite
+	 s_block_result
 ); 
 
 
@@ -27,7 +27,7 @@ block_touching_ground_condition = new Block(
 		with o_movement_parent {
 			return touching_ground;
 		}
-	},s_ui_sprite
+	},s_block_condition
 );
 
 
@@ -36,7 +36,7 @@ block_condition = new Block(
 	function(){
 		return true;
 	},
-	s_ui_sprite
+	s_block_condition
 );
 
 //set up grid
@@ -62,8 +62,8 @@ for(var i = 0; i < blocks_w ; i++){
 allRules = ds_list_create();
 updateRules = function(blocks, ruleDsList){
 	ds_list_clear(ruleDsList);
-	for(var i = 0; i < blocks_w ; i++){
-		for(var j = 0; j < blocks_h ; j++){
+	for(var i = 1; i < blocks_w-1 ; i++){
+		for(var j = 1; j < blocks_h-1 ; j++){
 			
 			if blocks[i][j] != -1{
 			
@@ -75,6 +75,7 @@ updateRules = function(blocks, ruleDsList){
 				if  blocks[i][j].blockType != undefined and blocks[i][j].blockType = global.Rules.Statement{
 					if i > 0 && i < blocks_w-1{
 						if blocks[i][j].rule = undefined && 
+						(blocks[i-1][j] != -1 && blocks[i+1][j] != -1) &&
 						(blocks[i-1][j].blockType = global.Rules.Result && blocks[i+1][j].blockType =
 						global.Rules.Condition){
 							blocks[i][j].rule = new Rule(
@@ -83,10 +84,8 @@ updateRules = function(blocks, ruleDsList){
 								blocks[i][j].func
 							)
 							ds_list_add(ruleDsList, blocks[i][j].rule);
-						}
-						
-						
-						if blocks[i][j].rule = undefined && 
+						}if blocks[i][j].rule = undefined && 
+							(blocks[i][j-1] != -1 && blocks[i][j+1] != -1) &&
 							(blocks[i][j-1].blockType = global.Rules.Result && blocks[i][j+1].blockType =
 							global.Rules.Condition){
 							blocks[i][j].rule = new Rule(
@@ -118,17 +117,22 @@ block_push = function(blocks, x,y,x_add,y_add){
 	
 	var moved_block = -1;
 	
-	if blocks[x][y] != -1 {
-		if blocks[x+ x_add][y + y_add] = -1 { 
-			blocks[x+x_add][y+y_add] = blocks[x][y];
-			blocks[x][y] = -1;
-			moved_block = true;
+	if x >= 0 && x < array_length(blocks) && y >= 0 && y < array_length(blocks[0]) &&
+	 x+x_add >= -1 && x+x_add <= array_length(blocks) && y+y_add >= -1 && y+y_add < array_length(blocks[0])
+	{
+		if blocks[x][y] != -1 {
+			if blocks[x+ x_add][y + y_add] = -1 { 
+				blocks[x+x_add][y+y_add] = blocks[x][y];
+				blocks[x][y] = -1;
+				moved_block = true;
 			
-		}else{
-			moved_block = false;//block_push( blocks,x+x_add,y+x_add, x_add,y_add);
+			}else{
+				moved_block = false;//block_push( blocks,x+x_add,y+x_add, x_add,y_add);
+			}
 		}
+	}else{
+		moved_block = false;
 	}
-	
 
 	return moved_block;
 }
