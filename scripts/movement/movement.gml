@@ -18,11 +18,10 @@ function add_speed(_direction, _acceleration,_max_speed) {
 
 
 function move(_bounce){
+	
 	live_name = "move";
 	if (live_call()) return live_result;
 //	if speed_ = 0 exit;
-
-
 
 	tilemap = layer_tilemap_get_id("Collisions");
 	 //enable bouncing off walls
@@ -51,13 +50,11 @@ function move(_bounce){
 
 			}else{ x = x - (x mod 32) - (bbox_left - x);
 			_x_speed = -(_x_speed)*bounce_amount_;
-	}
+		}
 	}else{
-	x += _x_speed;
+		x += _x_speed;
 	}
 	//VERTICLE TILE COLLISIONS
-	
-
 	
 
 if jump_force > 0 { 
@@ -68,7 +65,7 @@ if jump_force > 0 {
 
 	var collision_object_ = o_plataform_parent;
 
-draw_text(x,y,y);
+
 
 	if place_meeting(x, y+_y_speed, collision_object_) {
 		if !place_meeting(x, y+sign(_y_speed), collision_object_) {

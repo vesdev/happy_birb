@@ -27,6 +27,7 @@ function Block(_name, _type, _function, _sprite) constructor {
 	rules = [];
 	x = 0;
 	y = 0;
+	timer = 0;
 }
 
 function Rule(_result, _condition, _statement) constructor{

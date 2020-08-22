@@ -1,7 +1,13 @@
-if live_call() return live_result;
+
+#macro SEC game_get_speed(gamespeed_fps)
+
+elastic_timer = 0;
+elastic_timer = SEC*.3;
+elastic_change = 0;
+elastic_current = 0;
 
 
-
+ tile_size = 20;
 
 block_while = new Block("WHILE", global.Rules.Statement, global.Rules.While, s_block_statement);
 block_whileNot = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
@@ -47,7 +53,7 @@ block_solid = new Block(
 	function(){
 		return true;
 	},
-	s_block_solid
+	s_block_solid_dark
 );
 
 //set up grid
@@ -56,8 +62,11 @@ blocks_w = 10;
 blocks_h = 10;
 
 player_grid_position = { 
-	x : 5,
-	y : 5
+	x : 6,
+	y :5,
+	draw_x : 0,
+	draw_y : 0,
+	timer : 0
 }
 
 
@@ -125,62 +134,81 @@ updateRules = function(blocks, ruleDsList){
 }
 //temporary stuff
 
-
-
-blocks[2][4] = block_while;
-
-blocks[5][6] = block_result_right;
-blocks[4][7] = block_condition_anytime;
-
 switch room { 
-	
 	case r_lv_01:
-	blocks[5][6] = block_result_right;
-	blocks[2][4] = block_while;
-	blocks[2][5] = block_touching_ground_condition;
+	blocks[3][3] = block_result_right;
+	blocks[4][4] = block_while;
+	blocks[5][5] = block_touching_ground_condition;
 	break;
 	
 	case r_lv_02:
 	
-	blocks[8][3] = block_result_jump;
-	blocks[5][6] = block_result_right;
-	blocks[2][4] = block_while;
-	blocks[2][5] = block_touching_ground_condition;
-	blocks[7][8] = block_result_left;
+	blocks[5][4] = block_result_right;
+	blocks[4][5] = block_while;
+	blocks[4][6] = block_touching_ground_condition;
+	blocks[3][2] = block_result_jump;
+	blocks[2][2] = block_result_left;
 	break;
 	
 	case r_lv_03:
 
-	blocks[8][3] = block_result_jump;
-	blocks[5][6] = block_result_right;
-	blocks[2][4] = block_while;
-	blocks[2][5] = block_touching_ground_condition;
-
+	blocks[5][4] = block_result_right;
+	blocks[4][5] = block_while;
+	blocks[4][6] = block_touching_ground_condition;
+	blocks[3][2] = block_result_jump;
+	blocks[2][2] = block_result_left;
+	
+	blocks[7][8] = block_condition_anytime;
+	
 	
 	break;
 	
 	case r_lv_04:
-
-	blocks[8][3] = block_result_jump;
-	blocks[5][6] = block_result_right;
-	blocks[2][4] = block_while;
-	blocks[2][5] = block_touching_ground_condition;
-
 	
+	
+	blocks[5][4] = block_result_right;
+	blocks[4][5] = block_while;
+	blocks[7][8] = block_touching_ground_condition;
+	blocks[3][4] = block_result_jump;
+	blocks[4][6] = block_condition_anytime;
+
 	break;
 	
 	case r_lv_05:
-	blocks[8][3] = block_result_jump;
-	blocks[5][6] = block_result_right;
-	blocks[2][4] = block_while;
-	blocks[2][5] = block_touching_ground_condition;
-	blocks[5][6] = block_result_left;
-	blocks[5][6] = block_condition_anytime;
+	blocks[5][4] = block_result_right;
+	blocks[4][5] = block_while;
+	blocks[4][6] = block_touching_ground_condition;
+	blocks[3][2] = block_result_jump;
+	blocks[7][8] = block_condition_anytime;
 	break;
 	
+	case r_lv_06:
+	
+	blocks[5][4] = block_result_right;
+	blocks[2][3] = block_while;
+	blocks[7][2] = block_result_jump;
+	blocks[3][6] = block_whileNot;
+	blocks[4][6] = block_touching_ground_condition;
+	blocks[3][7] = block_solid;
+	blocks[4][7] = block_solid;
+	blocks[5][6] = block_solid;	
+	
+	break;
+	
+	case r_lv_07:
+	
+	blocks[5][4] = block_result_right;
+	blocks[2][3] = block_while;
+	blocks[7][2] = block_result_jump;
+	blocks[3][6] = block_whileNot;
+	blocks[7][8] = block_whileNot;
+	blocks[4][6] = block_touching_ground_condition;
+	blocks[3][7] = block_solid;
+	blocks[4][7] = block_solid;
+	blocks[5][6] = block_solid;	
+	
+	break;		
 }
-
-
 /*
 blocks[3][4] = block_solid;
 blocks[3][5] = block_solid;
@@ -196,7 +224,6 @@ updateRules(blocks, allRules);
 
 block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 	
-	
 	if x < 0 || x >= array_length(blocks){
 		return false;
 	}
@@ -208,7 +235,14 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 	
 	var moved_block = -1;
 
+		
+
 		if blocks[x][y] != -1 {
+			
+			if blocks[x][y].blockType == global.Rules.Solid  {
+				return false;
+			}
+			
 			if x+x_add < 0 || x+x_add >= array_length(blocks) || 
 			y+y_add < 0 || y+y_add >= array_length(blocks[0]){
 				moved_block = false;
@@ -218,15 +252,28 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 				blocks[x+x_add][y+y_add] = blocks[x][y];
 				blocks[x][y] = -1;
 				moved_block = true;
+				
+				blocks[x+x_add][y+y_add].timer = 0;
+				blocks[x+x_add][y+y_add].x = -x_add*tile_size;
+				blocks[x+x_add][y+y_add].y = -y_add*tile_size;
+				
+				
+			
+				
 			}else{
 				moved_block = selfFunc( blocks,x+x_add,y+y_add, x_add,y_add, selfFunc);
 				if moved_block = 1 || moved_block = -1{
 					blocks[x+x_add][y+y_add] = blocks[x][y];
 					blocks[x][y] = -1;
 					moved_block = true;
+					
+					blocks[x+x_add][y+y_add].timer = 0;
+					blocks[x+x_add][y+y_add].x = -x_add*tile_size;
+					blocks[x+x_add][y+y_add].y = -y_add*tile_size;
+				
+					
 				}
 			}
 		}
-
 	return moved_block;
 }

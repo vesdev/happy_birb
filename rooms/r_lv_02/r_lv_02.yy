@@ -22,8 +22,8 @@
     {"tilesetId":{"name":"til_collision","path":"tilesets/til_collision/til_collision.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":10,"SerialiseHeight":6,"TileSerialiseData":[
 4,28,28,28,28,28,28,28,28,8,
 24,0,0,0,0,2147483648,2147483648,2147483648,0,16,
-6,33,33,22,20,20,36,0,0,16,
-24,0,0,40,28,28,38,0,0,16,
+6,33,33,22,20,20,20,36,0,16,
+24,0,0,40,28,28,28,38,0,16,
 24,0,0,0,0,0,0,0,0,16,
 2,20,20,20,20,20,20,20,20,1,
 ],},"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collisions","tags":[],"resourceType":"GMRTileLayer",},

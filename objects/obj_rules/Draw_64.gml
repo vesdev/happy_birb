@@ -1,6 +1,4 @@
-//if live_call() return live_result;
 //window_set_size(1280,720)
-
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
@@ -9,7 +7,7 @@ var h = 32;
 
 draw_set_font(f_kenny);
 
-var tile_size = 20;
+
 var max_size = tile_size*10;
 
 var vm = matrix_get(matrix_view);
@@ -24,28 +22,49 @@ for(var xx = 0; xx < blocks_w ; xx++){
 		_yoff = sin(xx+current_time*0.001);
 		draw_sprite_ext(s_grid, 0, xx*tile_size, yy*tile_size+_yoff,1,1,0,c_white,.5);
 		if blocks[xx][yy] != -1{
-			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size, yy*tile_size+_yoff+5,1,1,0,c_black,.6);
+			if blocks[xx][yy].x != 0 or blocks[xx][yy].y != 0 {
+			blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
+			blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
+			}
+			
+			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size+3+blocks[xx][yy].x, yy*tile_size+_yoff+3+blocks[xx][yy].y,1,1,0,c_black,.6);
 		}
 	}
 }
 
 _yoff = sin(player_grid_position.x+current_time*0.001);
-draw_sprite_ext(s_ui_sprite,0,player_grid_position.x*tile_size,player_grid_position.y*tile_size+_yoff+5,1,1,0,c_black,.6);
+_xoff = 5;
+player_grid_position.draw_x = lerp(player_grid_position.draw_x,0,.4);
+player_grid_position.draw_y = lerp(player_grid_position.draw_y,0,.4);
+
+
+draw_sprite_ext(s_block_player_control,0,player_grid_position.x*tile_size+3+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+3+player_grid_position.draw_y,1,1,0,c_black,.6);
 
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
 		if blocks[xx][yy] != -1{
-			draw_sprite(blocks[xx][yy].sprite, 0, xx*tile_size, yy*tile_size+_yoff);
-			draw_text_transformed_color(xx*tile_size+tile_size/2, yy*tile_size+tile_size/2+_yoff, blocks[xx][yy].name, 
+			
+			//	if blocks[x][y].timer = 0;
+
+			draw_sprite(blocks[xx][yy].sprite, 
+			0,xx*tile_size+blocks[xx][yy].x, 
+			yy*tile_size+_yoff+blocks[xx][yy].y);
+			draw_text_transformed_color(xx*tile_size+tile_size/2+blocks[xx][yy].x, yy*tile_size+tile_size/2+_yoff+blocks[xx][yy].y, blocks[xx][yy].name, 
 			.2, .2, 
 			0
 			,c_black,c_black,c_black,c_black,1);
-		}	
+			
+		}else{
+		draw_text_transformed_color(xx*tile_size+tile_size/2, yy*tile_size+tile_size/2,
+		string(xx)+" "+string(yy),.2, .2, 
+		0
+		,c_black,c_black,c_black,c_black,1);
+		}
 	}
 }
 _yoff = sin(player_grid_position.x+current_time*0.001);
-draw_sprite(s_ui_sprite,0,player_grid_position.x*tile_size,player_grid_position.y*tile_size+_yoff);
+draw_sprite(s_block_player_control,0,player_grid_position.x*tile_size+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+player_grid_position.draw_y);
 
 
 if o_input.up_pressed  {
@@ -54,6 +73,9 @@ if o_input.up_pressed  {
 		0,-1,block_push  );
 	
 		if s = 1 || s = -1 { 
+			
+				player_grid_position.timer = 0;
+				player_grid_position.draw_y = 1*tile_size;
 				player_grid_position.y -= 1;
 				
 		if s != -1 {
@@ -77,6 +99,9 @@ if o_input.down_pressed  {
 	var s = block_push(blocks,player_grid_position.x,player_grid_position.y+1,
 	0,1,block_push  );
 	if s = 1 || s = -1 { 
+		
+			player_grid_position.timer =0;
+			player_grid_position.draw_y = -1*tile_size;
 			player_grid_position.y += 1;
 			
 		if s != -1 {
@@ -101,6 +126,8 @@ if o_input.left_pressed  {
 	-1,0,block_push )
 		if s = 1 || s = -1 { 
 		
+		player_grid_position.timer =0;
+		player_grid_position.draw_x = 1*tile_size;
 		player_grid_position.x -= 1;
 	
 		if s != -1 {
@@ -125,7 +152,8 @@ if o_input.right_pressed  {
 	1,0,block_push  )
 	if s = 1 || s = -1 { 
 		player_grid_position.x += 1;	
-	
+		player_grid_position.timer =0;
+		player_grid_position.draw_x = -1*tile_size;
 		if s != -1 {
 			var C = updateRules(blocks,allRules);
 			if C > prevRules {
