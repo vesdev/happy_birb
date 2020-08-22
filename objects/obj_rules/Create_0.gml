@@ -232,7 +232,37 @@ switch room {
 	blocks[4][7] = block_solid;
 	blocks[5][6] = block_solid;	
 	
-	break;		
+	break;
+	
+	case r_lv_09:
+	
+	
+	
+	blocks[3][2] = block_result_jump;
+	blocks[3][4] = block_result_right;
+	
+	blocks[2][7] = block_resolution_gravity;
+	blocks[2][4] = block_condition_going_right;
+
+
+	blocks[5][7] = block_while;
+
+
+
+	blocks[9][7] = block_whileNot;
+	blocks[9][8] = block_touching_ground_condition;
+	
+	blocks[7][7] = block_condition_anytime;
+	
+	blocks[7][8] = block_solid;
+	blocks[8][7] = block_solid;
+	blocks[8][8] = block_solid;
+	blocks[8][9] = block_solid;
+	blocks[9][9] = block_solid;	
+	
+	
+	
+	break;			
 }
 /*
 blocks[3][4] = block_solid;

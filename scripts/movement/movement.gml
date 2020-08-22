@@ -91,10 +91,12 @@ if jump_force > 0 {
 	{	
 		
 		
+		
+		if enable_gravity {
 			gravity_y_add += gravity_speed_;
 			gravity_speed_ += gravity_;
-			
-			
+		}
+		enable_gravity = true;
 	
 		if (tilemap_get_at_pixel(tilemap,bbox_left,bbox_side+gravity_speed_)= 0) and
 		  (tilemap_get_at_pixel(tilemap,bbox_right, bbox_side+gravity_speed_) = 0)

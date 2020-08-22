@@ -22,7 +22,6 @@ for(var xx = 0; xx < blocks_w ; xx++){
 		draw_sprite_ext(s_grid, 0, xx*tile_size, yy*tile_size+_yoff,1,1,0,c_white,.5);
 		if blocks[xx][yy] != -1{
 			if blocks[xx][yy].x != 0 or blocks[xx][yy].y != 0 {
-				
 				/*
 				if blocks[xx][yy].timer <= elastic_time{
 				
@@ -31,11 +30,10 @@ for(var xx = 0; xx < blocks_w ; xx++){
 					blocks[xx][yy].timer++;
 					
 				}
-				*/
+				*/			
 				blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
 				blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
-			}
-			
+			}			
 			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size+3+blocks[xx][yy].x, yy*tile_size+_yoff+3+blocks[xx][yy].y,1,1,0,c_black,.6);
 		}
 	}
@@ -45,10 +43,7 @@ _yoff = sin(player_grid_position.x+current_time*0.001);
 _xoff = 5;
 player_grid_position.draw_x = lerp(player_grid_position.draw_x,0,.4);
 player_grid_position.draw_y = lerp(player_grid_position.draw_y,0,.4);
-
-
 draw_sprite_ext(s_block_player_control,0,player_grid_position.x*tile_size+3+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+3+player_grid_position.draw_y,1,1,0,c_black,.6);
-
 
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
@@ -125,11 +120,9 @@ if o_input.down_pressed  {
 	var s = block_push(blocks,player_grid_position.x,player_grid_position.y+1,
 	0,1,block_push  );
 	if s = 1 || s = -1 { 
-		
 			player_grid_position.timer =0;
 			player_grid_position.draw_y = -1*tile_size;
 			player_grid_position.y += 1;
-			
 		if s != -1 {
 			var C = updateRules(blocks,allRules);
 			if C > prevRules {
@@ -143,8 +136,6 @@ if o_input.down_pressed  {
 		}else{
 			audio_play_sound(snd_move, 0, false);
 		}
-
-
 	}
 }
 if o_input.left_pressed  {
