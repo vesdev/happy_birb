@@ -5,7 +5,7 @@ if keyboard_check_pressed(vk_f9){
 	room_goto(rm_testing);	
 }
 if keyboard_check_pressed(ord("F")){
-	room_goto(r_lv_08);	
+	room_goto(r_lv_07);	
 }
 
 if keyboard_check_pressed(ord("Q")){
@@ -23,3 +23,5 @@ if keyboard_check_pressed(ord("R")){
 if keyboard_check_pressed(vk_space){
 	room_restart();
 }
+
+global.timeScale = lerp(global.timeScale,1,.01);

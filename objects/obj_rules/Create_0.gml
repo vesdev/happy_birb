@@ -32,11 +32,20 @@ block_result_hi = new Block(
 event_user(0);
 
 
+block_result_timeslow = new Block( 
+	"Time\nSlow", global.Rules.Result,
+	function(){
+		global.timeScale = .01;
+	},
+	 s_block_result
+); 
+
 block_result_jump = new Block( 
 	 "You\nJump", global.Rules.Result,
 	 o_movement_parent.jump,
 	 s_block_result
 ); 
+
 
 
 block_touching_ground_condition = new Block(
@@ -217,14 +226,20 @@ switch room {
 	case r_lv_07:
 	
 	blocks[5][4] = block_result_right;
-	blocks[2][3] = block_while;
 	blocks[7][2] = block_result_jump;
-	blocks[3][6] = block_whileNot;
-	blocks[7][8] = block_whileNot2;
-	blocks[4][6] = block_touching_ground_condition;
-	blocks[3][7] = block_solid;
-	blocks[4][7] = block_solid;
-	blocks[5][6] = block_solid;	
+	blocks[7][7] = block_while;
+	blocks[4][6] = block_condition_anykey;
+	
+	
+	blocks[0][7] = block_solid;
+	blocks[2][7] = block_solid;	
+	blocks[3][8] = block_solid;	
+	blocks[3][9] = block_solid;	
+	
+	blocks[0][8] = block_result_timeslow;
+	blocks[1][8] = block_whileNot;
+	blocks[2][8] = block_touching_ground_condition;
+	blocks[1][9] = block_touching_ground_condition;
 	
 	break;	
 	
