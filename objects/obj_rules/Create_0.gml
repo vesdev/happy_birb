@@ -76,7 +76,7 @@ block_condition = new Block(
 block_condition_anykey = new Block(
 	"any\nkey", global.Rules.Condition, 
 	function(){
-		return keyboard_check_pressed(vk_anykey);
+		return keyboard_check(vk_anykey);
 	},
 	s_block_condition
 );
