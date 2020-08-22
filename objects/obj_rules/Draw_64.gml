@@ -1,5 +1,8 @@
 //if live_call() return live_result;
 //window_set_size(1280,720)
+
+
+
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var w = 32;
@@ -9,6 +12,13 @@ draw_set_font(f_kenny);
 
 var tile_size = 20;
 var max_size = tile_size*10;
+
+var vm = matrix_get(matrix_view);
+var _cm = matrix_build( display_get_gui_width()-blocks_w/2*tile_size-tile_size/2,  display_get_gui_height()/2-blocks_h/2*tile_size-tile_size/2,
+	0, 0, 0, 0, .8, .8, 1);
+matrix_set(matrix_view,matrix_multiply(vm,_cm));
+
+draw_set_alpha(.8);
 
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
@@ -85,3 +95,5 @@ player_grid_position.y = clamp( player_grid_position.y,0,blocks_h-1);
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
+
+matrix_set(matrix_view,vm);
