@@ -1,16 +1,25 @@
 
 #macro SEC game_get_speed(gamespeed_fps)
 
-elastic_timer = 0;
-elastic_timer = SEC*.3;
+
+elastic_time = SEC*.2;
 elastic_change = 0;
 elastic_current = 0;
+default_easing = e_ease.easeoutexpo;
+
+
+
+
 
 
  tile_size = 20;
 
 block_while = new Block("WHILE", global.Rules.Statement, global.Rules.While, s_block_statement);
+block_while2 = new Block("WHILE", global.Rules.Statement, global.Rules.While, s_block_statement);
+
 block_whileNot = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
+block_whileNot2 = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
+
 block_result_hi = new Block(
 	"say\nhi", global.Rules.Result, 
 	function(){
@@ -66,7 +75,9 @@ player_grid_position = {
 	y :5,
 	draw_x : 0,
 	draw_y : 0,
-	timer : 0
+	timer : 0,
+	xbefore : 0,
+	ybefore : 0
 }
 
 
@@ -201,7 +212,7 @@ switch room {
 	blocks[2][3] = block_while;
 	blocks[7][2] = block_result_jump;
 	blocks[3][6] = block_whileNot;
-	blocks[7][8] = block_whileNot;
+	blocks[7][8] = block_whileNot2;
 	blocks[4][6] = block_touching_ground_condition;
 	blocks[3][7] = block_solid;
 	blocks[4][7] = block_solid;
@@ -257,9 +268,15 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 				blocks[x+x_add][y+y_add].x = -x_add*tile_size;
 				blocks[x+x_add][y+y_add].y = -y_add*tile_size;
 				
-				
+				blocks[x+x_add][y+y_add].x = -x_add*tile_size;
+				blocks[x+x_add][y+y_add].y = -y_add*tile_size;
 			
-				
+				//	blocks[x+x_add][y+y_add].xchange = -x_add*tile_size/4;
+				//	blocks[x+x_add][y+y_add].ychange = -y_add*tile_size/4;
+					
+				//	blocks[x+x_add][y+y_add].xbefore = x_add*tile_size/4;
+				//	blocks[x+x_add][y+y_add].ybefore = y_add*tile_size/4;
+	
 			}else{
 				moved_block = selfFunc( blocks,x+x_add,y+y_add, x_add,y_add, selfFunc);
 				if moved_block = 1 || moved_block = -1{
@@ -269,9 +286,16 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 					
 					blocks[x+x_add][y+y_add].timer = 0;
 					blocks[x+x_add][y+y_add].x = -x_add*tile_size;
-					blocks[x+x_add][y+y_add].y = -y_add*tile_size;
+				 	blocks[x+x_add][y+y_add].y = -y_add*tile_size;
 				
+				//	blocks[x+x_add][y+y_add].xchange = -x_add*tile_size/4;
+				//	blocks[x+x_add][y+y_add].ychange = -y_add*tile_size/4;
 					
+				//	blocks[x+x_add][y+y_add].xbefore = x_add*tile_size/4;
+				//	blocks[x+x_add][y+y_add].ybefore = y_add*tile_size/4;
+			
+						
+						
 				}
 			}
 		}

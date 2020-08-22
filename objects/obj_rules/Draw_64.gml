@@ -23,8 +23,18 @@ for(var xx = 0; xx < blocks_w ; xx++){
 		draw_sprite_ext(s_grid, 0, xx*tile_size, yy*tile_size+_yoff,1,1,0,c_white,.5);
 		if blocks[xx][yy] != -1{
 			if blocks[xx][yy].x != 0 or blocks[xx][yy].y != 0 {
-			blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
-			blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
+				
+				/*
+				if blocks[xx][yy].timer <= elastic_time{
+				
+					blocks[xx][yy].x = easings(default_easing,blocks[xx][yy].xbefore,blocks[xx][yy].xchange,elastic_time,blocks[xx][yy].timer);
+					blocks[xx][yy].y = easings(default_easing,blocks[xx][yy].ybefore,blocks[xx][yy].ychange,elastic_time,blocks[xx][yy].timer);
+					blocks[xx][yy].timer++;
+					
+				}
+				*/
+				blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
+				blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
 			}
 			
 			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size+3+blocks[xx][yy].x, yy*tile_size+_yoff+3+blocks[xx][yy].y,1,1,0,c_black,.6);

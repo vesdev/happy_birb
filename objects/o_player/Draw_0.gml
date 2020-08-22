@@ -3,7 +3,6 @@ if live_call() return live_result;
 
 
 
-
 if touching_ground { 
 	sprite_index = s_parrot;
 

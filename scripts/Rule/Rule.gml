@@ -28,6 +28,12 @@ function Block(_name, _type, _function, _sprite) constructor {
 	x = 0;
 	y = 0;
 	timer = 0;
+	xbefore = 0;
+	ybefore = 0;
+	xchange = 0;
+	ychange = 0;
+		
+	
 }
 
 function Rule(_result, _condition, _statement) constructor{
