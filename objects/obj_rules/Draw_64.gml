@@ -51,8 +51,19 @@ if o_input.up_pressed  {
 	
 		if s = 1 || s = -1 { 
 				player_grid_position.y -= 1;
+			
 		if s != -1 {
-			updateRules(blocks,allRules);
+			var C = updateRules(blocks,allRules);
+			if C > prevRules {
+				audio_play_sound(snd_rule, 0, false);
+				prevRules = C;
+			}else if C < prevRules{
+				audio_play_sound(snd_rule_down, 0, false);
+				prevRules = C;
+			}
+			audio_play_sound(snd_push, 0, false);
+		}else{
+			audio_play_sound(snd_move, 0, false);
 		}
 	}
 }
@@ -62,8 +73,19 @@ if o_input.down_pressed  {
 	0,1,block_push  );
 	if s = 1 || s = -1 { 
 			player_grid_position.y += 1;
+			
 		if s != -1 {
-			updateRules(blocks,allRules);
+			var C = updateRules(blocks,allRules);
+			if C > prevRules {
+				audio_play_sound(snd_rule, 0, false);
+				prevRules = C;
+			}else if C < prevRules{
+				audio_play_sound(snd_rule_down, 0, false);
+				prevRules = C;
+			}
+			audio_play_sound(snd_push, 0, false);
+		}else{
+			audio_play_sound(snd_move, 0, false);
 		}
 
 
@@ -75,8 +97,19 @@ if o_input.left_pressed  {
 		if s = 1 || s = -1 { 
 		
 		player_grid_position.x -= 1;
+	
 		if s != -1 {
-			updateRules(blocks,allRules);
+			var C = updateRules(blocks,allRules);
+			if C > prevRules {
+				audio_play_sound(snd_rule, 0, false);
+				prevRules = C;
+			}else if C < prevRules{
+				audio_play_sound(snd_rule_down, 0, false);
+				prevRules = C;
+			}
+			audio_play_sound(snd_push, 0, false);
+		}else{
+			audio_play_sound(snd_move, 0, false);
 		}
 
 
@@ -87,8 +120,19 @@ if o_input.right_pressed  {
 	1,0,block_push  )
 	if s = 1 || s = -1 { 
 		player_grid_position.x += 1;	
+	
 		if s != -1 {
-			updateRules(blocks,allRules);
+			var C = updateRules(blocks,allRules);
+			if C > prevRules {
+				audio_play_sound(snd_rule, 0, false);
+				prevRules = C;
+			}else if C < prevRules{
+				audio_play_sound(snd_rule_down, 0, false);
+				prevRules = C;
+			}
+			audio_play_sound(snd_push, 0, false);
+		}else{
+			audio_play_sound(snd_move, 0, false);
 		}
 	}
 }
