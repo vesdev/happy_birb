@@ -77,8 +77,8 @@ if jump_force > 0 {
 			y -= sprite_get_yoffset(sprite_index);
 			y += sign(_y_speed);
 		}
-			y -= 2;
-			jump_force = 0;
+		
+			jump_force = -5;
 			gravity_y_add  = 0;
 			gravity_speed_ = 0;
 			touching_ground = true;

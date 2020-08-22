@@ -7,7 +7,6 @@ var h = 32;
 
 draw_set_font(f_kenny);
 
-
 var max_size = tile_size*10;
 
 var vm = matrix_get(matrix_view);

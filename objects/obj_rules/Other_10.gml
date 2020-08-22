@@ -26,6 +26,14 @@ block_result_left = new Block(
 );
 
 
+block_condition_going_right = new Block(
+	"GOING\nRIGHT", global.Rules.Condition, 
+	function(){
+	return true;
+	},s_block_condition
+);
+
+
 block_condition_anytime = new Block(
 	"ANY\nTIME", global.Rules.Condition, 
 	function(){
