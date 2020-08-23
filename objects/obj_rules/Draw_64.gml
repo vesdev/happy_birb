@@ -1,4 +1,7 @@
 //window_set_size(1280,720)
+if live_call() return live_result;
+
+
 
 if instance_exists(intro_controller) {
 	exit;	
@@ -33,15 +36,12 @@ for(var xx = 0; xx < blocks_w ; xx++){
 		draw_sprite_ext(s_grid, 0, xx*tile_size, yy*tile_size+_yoff+yoffset_all,1,1,0,c_white,.5);
 		if blocks[xx][yy] != -1{
 			if blocks[xx][yy].x != 0 or blocks[xx][yy].y != 0 {
-				/*
-				if blocks[xx][yy].timer <= elastic_time{
 				
+				/*if blocks[xx][yy].timer <= elastic_time{
 					blocks[xx][yy].x = easings(default_easing,blocks[xx][yy].xbefore,blocks[xx][yy].xchange,elastic_time,blocks[xx][yy].timer);
 					blocks[xx][yy].y = easings(dsefault_easing,blocks[xx][yy].ybefore,blocks[xx][yy].ychange,elastic_time,blocks[xx][yy].timer);
 					blocks[xx][yy].timer++;
-					
-				}
-				*/
+				}*/
 				if blocks[xx][yy].blockType != global.Rules.Solid{
 					blocks[xx][yy].x = lerp ( blocks[xx][yy].x, 0,.4);
 					blocks[xx][yy].y = lerp ( blocks[xx][yy].y, 0,.4);
@@ -49,8 +49,7 @@ for(var xx = 0; xx < blocks_w ; xx++){
 					blocks[xx][yy].x = 0;
 					blocks[xx][yy].y = 0;
 				}
-			}
-			
+			}			
 			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size+3+blocks[xx][yy].x, yy*tile_size+_yoff+3+blocks[xx][yy].y+yoffset_all,1,1,0,c_black,.6);
 		}
 	}
@@ -62,7 +61,6 @@ player_grid_position.draw_x = lerp(player_grid_position.draw_x,0,.4);
 player_grid_position.draw_y = lerp(player_grid_position.draw_y,0,.4);
 draw_sprite_ext(s_block_player_control,0,player_grid_position.x*tile_size+3+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+3+player_grid_position.draw_y+yoffset_all,1,1,0,c_black,.6);
 
-
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
@@ -71,7 +69,6 @@ for(var xx = 0; xx < blocks_w ; xx++){
 			draw_sprite(blocks[xx][yy].sprite, 
 			0,xx*tile_size+blocks[xx][yy].x, 
 			yy*tile_size+_yoff+blocks[xx][yy].y+yoffset_all);
-			
 		}
 	}
 }
@@ -92,25 +89,25 @@ for(var xx = 0; xx < blocks_w ; xx++){
 				if blocks[xx][yy].rules[0] != undefined{
 					draw_sprite(s_block_solid, 
 					0,xx*tile_size, 
-					yy*tile_size+_yoff);
+					yy*tile_size+_yoff+yoffset_all);
 					draw_sprite(s_block_solid, 
 					0,(xx-1)*tile_size, 
-					yy*tile_size+sin(xx-1+current_time*0.001));
+					yy*tile_size+sin(xx-1+current_time*0.001)+yoffset_all);
 					draw_sprite(s_block_solid, 
 					0,(xx+1)*tile_size, 
-					yy*tile_size+sin(xx+1+current_time*0.001));
+					yy*tile_size+sin(xx+1+current_time*0.001)+yoffset_all);
 				}
 				
 				if blocks[xx][yy].rules[1] != undefined{
 					draw_sprite(s_block_solid, 
 					0,xx*tile_size, 
-					yy*tile_size+_yoff);
+					yy*tile_size+_yoff+yoffset_all);
 					draw_sprite(s_block_solid, 
 					0,xx*tile_size, 
-					(yy-1)*tile_size+_yoff);
+					(yy-1)*tile_size+_yoff+yoffset_all);
 					draw_sprite(s_block_solid, 
 					0,xx*tile_size, 
-					(yy+1)*tile_size+_yoff);
+					(yy+1)*tile_size+_yoff+yoffset_all);
 				}
 			}
 			
