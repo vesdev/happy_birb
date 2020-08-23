@@ -7,6 +7,12 @@ function reset_player(){
 	}
 }
 
+global.rightActive = false;
+rightTemp = false;
+global.leftActive = false;
+leftTemp = false;
+
+
 
 u_time = shader_get_uniform(sha_dotted, "time");
 u_texel = shader_get_uniform(sha_dotted, "texel");
