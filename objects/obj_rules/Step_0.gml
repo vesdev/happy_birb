@@ -7,7 +7,7 @@ if global.break_statement = true and execute_temp_script_flag{
 	
 	if execute_temp_script != noone {
 
-		script_execute(execute_temp_script);
+		//script_execute(execute_temp_script);
 		execute_temp_script = noone;
 	}
 }

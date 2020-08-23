@@ -7,6 +7,9 @@ function reset_player(){
 }
 
 
+shader_set_live(sha_dotted, true);
+
+u_texel = shader_get_uniform(sha_dotted, "texel");
 
 elastic_time = SEC*.2;
 elastic_change = 0;
