@@ -1,3 +1,4 @@
+
 execute_temp_script_flag = true;
 execute_temp_script = noone;
 function reset_player(){ 
@@ -102,6 +103,16 @@ block_touching_ground_condition = new Block(
 		}
 	},s_block_condition
 );
+
+block_touching_ground_condition2 = new Block(
+	"On\nGround", global.Rules.Condition, 
+	function(){
+		with o_movement_parent {
+			return touching_ground;
+		}
+	},s_block_condition
+);
+
 
 
 block_condition = new Block(
@@ -355,13 +366,13 @@ switch room {
 	blocks[7][2] = block_result_jump;
 
 
-	blocks[7][7] = block_condition_going_right;
+	blocks[7][7] = block_whileNot2;
 	blocks[5][2] = block_result_left;//
 
 
 	blocks[2][8] = block_whileNot;
 	blocks[3][8] = block_touching_ground_condition;
-	blocks[2][9] = block_touching_ground_condition;
+	blocks[2][9] = block_touching_ground_condition2;
 	blocks[3][9] = block_solid;
 	blocks[4][8] = block_solid;	
 	
@@ -370,22 +381,18 @@ switch room {
 	
 	case r_lv_11:
 	
+	blocks[2][4] = block_resolution_gravity;
 	blocks[5][4] = block_result_right;
 	blocks[2][3] = block_while;
-	blocks[2][4] = block_resolution_gravity;
+	blocks[3][6] = block_whileNot;
+	
+
+	blocks[4][4] = block_touching_ground_condition;
+	blocks[4][6] = block_touching_ground_condition2;
 
 	blocks[7][2] = block_result_jump;
-
-
-	blocks[7][7] = block_condition_going_right;
 	blocks[5][2] = block_result_left;//
 
-
-	blocks[3][6] = block_whileNot;
-	blocks[4][6] = block_touching_ground_condition;
-	blocks[3][7] = block_solid;
-	blocks[4][7] = block_solid;
-	blocks[5][6] = block_solid;	
 	
 	break;	
 	
