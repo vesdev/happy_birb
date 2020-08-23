@@ -70,6 +70,17 @@ for(var xx = 0; xx < blocks_w ; xx++){
 			0,xx*tile_size+blocks[xx][yy].x, 
 			yy*tile_size+_yoff+blocks[xx][yy].y+yoffset_all);
 			
+			if blocks[xx][yy].blockType = global.Rules.Statement && blocks[xx][yy].rules != undefined{
+				
+				if blocks[xx][yy].rules[0] != undefined{
+					draw_rectangle(xx*tile_size-tile_size,yy*tile_size, xx*tile_size+tile_size*2,yy*tile_size+tile_size, true);
+				}
+				
+				if blocks[xx][yy].rules[1] != undefined{
+					draw_rectangle(xx*tile_size,yy*tile_size-tile_size, xx*tile_size+tile_size,yy*tile_size+tile_size*2, true);
+				}
+			}
+			
 		}
 	}
 }
