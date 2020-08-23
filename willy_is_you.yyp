@@ -185,8 +185,8 @@
     {"name":"r_lv_08","path":"rooms/r_lv_08/r_lv_08.yy",},
     {"name":"r_lv_09","path":"rooms/r_lv_09/r_lv_09.yy",},
     {"name":"r_lv_10","path":"rooms/r_lv_10/r_lv_10.yy",},
-    {"name":"r_lv_ending","path":"rooms/r_lv_ending/r_lv_ending.yy",},
     {"name":"r_lv_11","path":"rooms/r_lv_11/r_lv_11.yy",},
+    {"name":"r_lv_ending","path":"rooms/r_lv_ending/r_lv_ending.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":294,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
