@@ -347,7 +347,7 @@ switch room {
 
 
 	blocks[7][7] = block_condition_going_right;
-	blocks[5][2] = block_result_left;
+	blocks[5][2] = block_result_left;//
 
 
 	blocks[3][6] = block_whileNot;
