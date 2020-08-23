@@ -20,8 +20,9 @@ function add_speed(_direction, _acceleration,_max_speed) {
 function move(_bounce){
 	
 //	if speed_ = 0 exit;
-	
-
+	live_name = "move";
+	if live_call() return live_result;
+	draw_text(x,y-10,string(_x_input));
 	tilemap = layer_tilemap_get_id("Collisions");
 	 //enable bouncing off walls
 

@@ -8,6 +8,8 @@ alarm[1] = 1;
 #macro SEC game_get_speed(gamespeed_fps)
 #macro DEBUG false
 
+global.break_statement = false;
+
 global.timeScale = 1;
 alarm[0] = 10;
 
@@ -16,6 +18,9 @@ global.font_large = font_add_sprite_ext(s_kenny_font, _font_string, true, 1);
 
 
 
-
+if !DEBUG {
 create(0,0,intro_controller);
 room_goto(r_lv_01);
+}else{
+room_goto(r_lv_10);	
+}

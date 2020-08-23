@@ -1,6 +1,10 @@
 /// @description 
 if live_call() return live_result;
 
+with obj_rules{
+	
+}
+
 if object_index = o_player{
 	if instance_exists(o_close_transition) and o_close_transition.state = close.circle_open_close || 
 	room = r_lv_ending

@@ -1,3 +1,12 @@
+execute_temp_script_flag = true;
+execute_temp_script = noone;
+function reset_player(){ 
+	with o_movement_parent{
+		event_user(0);	
+	}
+}
+
+
 
 elastic_time = SEC*.2;
 elastic_change = 0;
@@ -16,6 +25,11 @@ block_while2 = new Block("WHILE", global.Rules.Statement, global.Rules.While, s_
 
 block_whileNot = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
 block_whileNot2 = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
+
+
+
+
+
 
 block_result_hi = new Block(
 	"say\nhi", global.Rules.Result, 
@@ -48,6 +62,19 @@ block_result_jump = new Block(
 	 ,
 	 s_block_result
 ); 
+
+block_result_jump2 = new Block( 
+	 "You\nJump", global.Rules.Result,
+	 
+	 function() { 
+		 with o_movement_parent{
+			   jump();
+		 }
+	 }
+	 ,
+	 s_block_result
+); 
+
 
 global.canPush = false;
 block_result_push_solids = new Block( 
@@ -314,7 +341,15 @@ switch room {
 	
 	blocks[5][4] = block_result_right;
 	blocks[2][3] = block_while;
+	blocks[2][4] = block_resolution_gravity;
+
 	blocks[7][2] = block_result_jump;
+
+
+	blocks[7][7] = block_condition_going_right;
+	blocks[5][2] = block_result_left;
+
+
 	blocks[3][6] = block_whileNot;
 	blocks[4][6] = block_touching_ground_condition;
 	blocks[3][7] = block_solid;
@@ -349,9 +384,6 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 	
 	
 	var moved_block = -1;
-
-		
-
 		if blocks[x][y] != -1 {
 			
 			if blocks[x][y].blockType == global.Rules.Solid && !global.canPush {
