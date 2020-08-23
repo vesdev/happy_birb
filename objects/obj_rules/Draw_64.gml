@@ -62,6 +62,7 @@ player_grid_position.draw_x = lerp(player_grid_position.draw_x,0,.4);
 player_grid_position.draw_y = lerp(player_grid_position.draw_y,0,.4);
 draw_sprite_ext(s_block_player_control,0,player_grid_position.x*tile_size+3+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+3+player_grid_position.draw_y+yoffset_all,1,1,0,c_black,.6);
 
+
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
@@ -71,20 +72,53 @@ for(var xx = 0; xx < blocks_w ; xx++){
 			0,xx*tile_size+blocks[xx][yy].x, 
 			yy*tile_size+_yoff+blocks[xx][yy].y+yoffset_all);
 			
+		}
+	}
+}
+
+shader_set(sha_dotted);
+shader_set_uniform_f(u_time, current_time);
+
+shader_set_uniform_f(u_texel, texW, texH);
+shader_set_uniform_f(u_uv, texUv[0], texUv[1], texUv[2], texUv[3]);
+
+for(var xx = 0; xx < blocks_w ; xx++){
+	for(var yy = 0; yy < blocks_h ; yy++){
+		_yoff = sin(xx+current_time*0.001);
+		if blocks[xx][yy] != -1{
+			//	if blocks[x][y].timer = 0;
 			if blocks[xx][yy].blockType = global.Rules.Statement && blocks[xx][yy].rules != undefined{
 				
 				if blocks[xx][yy].rules[0] != undefined{
-					draw_rectangle(xx*tile_size-tile_size,yy*tile_size+yoffset_all, xx*tile_size+tile_size*2,yy*tile_size+tile_size+yoffset_all, true);
+					draw_sprite(s_block_solid, 
+					0,xx*tile_size, 
+					yy*tile_size+_yoff);
+					draw_sprite(s_block_solid, 
+					0,(xx-1)*tile_size, 
+					yy*tile_size+sin(xx-1+current_time*0.001));
+					draw_sprite(s_block_solid, 
+					0,(xx+1)*tile_size, 
+					yy*tile_size+sin(xx+1+current_time*0.001));
 				}
 				
 				if blocks[xx][yy].rules[1] != undefined{
-					draw_rectangle(xx*tile_size,yy*tile_size-tile_size+yoffset_all, xx*tile_size+tile_size,yy*tile_size+tile_size*2+yoffset_all, true);
+					draw_sprite(s_block_solid, 
+					0,xx*tile_size, 
+					yy*tile_size+_yoff);
+					draw_sprite(s_block_solid, 
+					0,xx*tile_size, 
+					(yy-1)*tile_size+_yoff);
+					draw_sprite(s_block_solid, 
+					0,xx*tile_size, 
+					(yy+1)*tile_size+_yoff);
 				}
 			}
 			
 		}
 	}
 }
+shader_reset();
+
 gpu_set_tex_filter(true);
 
 for(var xx = 0; xx < blocks_w ; xx++){
