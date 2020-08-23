@@ -169,7 +169,7 @@
   ],
   "parent": {
     "name": "letters",
-    "path": "folders/Objects/Soves/Sprites/Oscar/letters.yy",
+    "path": "folders/Sprites/Sprites/Oscar/letters.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_kenny_font",

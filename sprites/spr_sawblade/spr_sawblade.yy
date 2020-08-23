@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "Soves",
-    "path": "folders/Objects/Soves/Sprites/Soves.yy",
+    "path": "folders/Sprites/Soves.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_sawblade",

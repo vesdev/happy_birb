@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "animals",
-    "path": "folders/Objects/Soves/Sprites/Oscar/animals.yy",
+    "path": "folders/Sprites/Sprites/Oscar/animals.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_parrot",

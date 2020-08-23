@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "ending",
-    "path": "folders/Objects/Soves/Sprites/Oscar/animals/ending.yy",
+    "path": "folders/Sprites/Sprites/Oscar/animals/ending.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_penguin",
