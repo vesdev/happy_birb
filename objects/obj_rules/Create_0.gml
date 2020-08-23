@@ -7,9 +7,15 @@ function reset_player(){
 }
 
 
-shader_set_live(sha_dotted, true);
 
+
+u_time = shader_get_uniform(sha_dotted, "time");
 u_texel = shader_get_uniform(sha_dotted, "texel");
+u_uv = shader_get_uniform(sha_dotted, "sprUv");
+var _t = sprite_get_texture(s_block_solid, 0);
+texW = texture_get_texel_width( _t);
+texH = texture_get_texel_height( _t);
+texUv = texture_get_uvs(_t);
 
 elastic_time = SEC*.2;
 elastic_change = 0;
