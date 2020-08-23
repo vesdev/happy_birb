@@ -36,6 +36,7 @@
     {"isDnD":false,"eventNum":14,"eventType":7,"collisionObjectId":null,"parent":{"name":"o_close_transition","path":"objects/o_close_transition/o_close_transition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":3,"eventType":2,"collisionObjectId":null,"parent":{"name":"o_close_transition","path":"objects/o_close_transition/o_close_transition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"parent":{"name":"o_close_transition","path":"objects/o_close_transition/o_close_transition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":75,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_close_transition","path":"objects/o_close_transition/o_close_transition.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

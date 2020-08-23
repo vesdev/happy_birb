@@ -8,9 +8,6 @@ function reset_player(){
 }
 
 
-shader_set_live(sha_dotted, true);
-
-u_texel = shader_get_uniform(sha_dotted, "texel");
 
 elastic_time = SEC*.2;
 elastic_change = 0;
@@ -374,22 +371,53 @@ switch room {
 	
 	
 	case r_lv_11:
-	
-	blocks[2][4] = block_resolution_gravity;
-	blocks[5][4] = block_result_right;
-	blocks[2][3] = block_while;
+	blocks[4][2] = block_resolution_gravity;
+	blocks[2][2] = block_result_right;
+	blocks[3][4] = block_while;
 	blocks[3][6] = block_whileNot;
-	
-
-	blocks[4][4] = block_touching_ground_condition;
-	blocks[4][6] = block_touching_ground_condition2;
-
+	blocks[5][6] = block_touching_ground_condition;
+	blocks[5][8] = block_touching_ground_condition2;
 	blocks[7][2] = block_result_jump;
-	blocks[5][2] = block_result_left;//
-
-	
 	break;	
 	
+	
+	case r_lv_12:
+	
+	
+	blocks[2][2] = block_result_jump;
+	blocks[2][4] = block_condition_invincible;
+	blocks[2][6] = block_while;	
+	blocks[2][8] = block_while2;
+
+	blocks[4][1] = block_condition_going_right;
+	blocks[4][2] = block_condition_going_left;
+	blocks[4][4] = block_result_right;
+	blocks[4][6] = block_result_left;	
+	blocks[4][8] = block_touching_ground_condition;	
+	break;
+	
+	case r_lv_13:
+		
+	blocks[2][4] = block_result_right;
+	blocks[2][6] = block_result_jump;
+	blocks[4][5] = block_resolution_gravity;
+	
+	blocks[4][8] = block_while;	
+	blocks[5][8] = block_whileNot;	
+	blocks[6][8] = block_while2;
+	blocks[7][8] = block_whileNot2;
+	
+	blocks[1][8] = block_solid;
+	blocks[2][9] = block_solid;	
+	blocks[3][9] = block_solid;
+	blocks[4][9] = block_solid;
+	blocks[7][9] = block_solid;
+	blocks[9][9] = block_solid;
+	blocks[8][9] = block_solid;
+
+	blocks[5][9] = block_touching_ground_condition;
+	blocks[6][9] = block_touching_ground_condition;
+	break;		
 }
 /*
 blocks[3][4] = block_solid;

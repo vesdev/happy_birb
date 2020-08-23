@@ -1,4 +1,5 @@
 //window_set_size(1280,720)
+
 if instance_exists(intro_controller) {
 	exit;	
 }
@@ -70,33 +71,20 @@ for(var xx = 0; xx < blocks_w ; xx++){
 			0,xx*tile_size+blocks[xx][yy].x, 
 			yy*tile_size+_yoff+blocks[xx][yy].y+yoffset_all);
 			
-		}
-	}
-}
-
-if live_call() return live_result;
-shader_set(sha_dotted);
-shader_set_uniform_f(u_texel, 1/display_get_gui_width(), 1/display_get_gui_height());
-for(var xx = 0; xx < blocks_w ; xx++){
-	for(var yy = 0; yy < blocks_h ; yy++){
-		_yoff = sin(xx+current_time*0.001);
-		if blocks[xx][yy] != -1{
-			//	if blocks[x][y].timer = 0;
 			if blocks[xx][yy].blockType = global.Rules.Statement && blocks[xx][yy].rules != undefined{
 				
 				if blocks[xx][yy].rules[0] != undefined{
-					draw_rectangle(xx*tile_size-tile_size,yy*tile_size, xx*tile_size+tile_size*2,yy*tile_size+tile_size, false);
+					draw_rectangle(xx*tile_size-tile_size,yy*tile_size+yoffset_all, xx*tile_size+tile_size*2,yy*tile_size+tile_size+yoffset_all, true);
 				}
 				
 				if blocks[xx][yy].rules[1] != undefined{
-					draw_rectangle(xx*tile_size,yy*tile_size-tile_size, xx*tile_size+tile_size,yy*tile_size+tile_size*2, false);
+					draw_rectangle(xx*tile_size,yy*tile_size-tile_size+yoffset_all, xx*tile_size+tile_size,yy*tile_size+tile_size*2+yoffset_all, true);
 				}
 			}
 			
 		}
 	}
 }
-shader_reset();
 gpu_set_tex_filter(true);
 
 for(var xx = 0; xx < blocks_w ; xx++){

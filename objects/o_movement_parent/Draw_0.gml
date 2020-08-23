@@ -1,5 +1,4 @@
 /// @description 
-if live_call() return live_result;
 
 if object_index = o_player{
 	if instance_exists(o_close_transition) and o_close_transition.state = close.circle_open_close || 
@@ -34,7 +33,27 @@ if object_index = o_player{
 }
 
 
+#region invincible
+
+if invincible {
+	
+	_time += 1 / room_speed;
+	shader_set(shd_rainbow);
+    var uv = sprite_get_uvs(sprite_index, image_index);
+    shader_set_uniform_f(_uniUV, uv[0], uv[2]);
+    shader_set_uniform_f(_uniSpeed, _speed);
+    shader_set_uniform_f(_uniTime, _time);
+    shader_set_uniform_f(_uniSaturation, _saturation);
+    shader_set_uniform_f(_uniBrightness, _brightness);
+    shader_set_uniform_f(_uniSection, _section);
+    shader_set_uniform_f(_uniMix, _mix);
+	  draw_sprite_ext(sprite_index,image_index,x,y,xscale,yscale,angle,image_blend,image_alpha);	
+	shader_reset();
+}else{
+
 draw_sprite_ext(sprite_index,image_index,x,y,xscale,yscale,angle,
-image_blend,image_alpha);
+image_blend,image_alpha);	
+}
+#endregion
 if 	trigger_winstate = true and room != r_lv_ending exit;
 move(true);

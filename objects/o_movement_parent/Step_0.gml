@@ -2,6 +2,13 @@
 if live_call() return live_result;
 
 
+if invincible_timer > 0 {
+	invincible_timer--;
+
+}else{
+	invincible = false;	
+}
+
 #region movement
 x = clamp(x,0 , room_width);
 y = clamp(y,0 , room_width);

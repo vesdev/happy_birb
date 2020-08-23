@@ -20,7 +20,7 @@ if (surface_exists(surf)) {
 	for(i=0;i<c;i++)
 	{
 		draw_set_alpha(1/i);
-		draw_circle(x+random_range(-.2,.2),y+random_range(-.2,.2),radius*(1+(0.007*(i^1.25))),false);
+		draw_circle(return_gui_x( x+random_range(-.2,.2)),return_gui_y( y+random_range(-.2,.2)),radius*(1+(0.007*(i^1.25))),false);
 	}
 	// Reset
 	gpu_set_blendmode(bm_normal);

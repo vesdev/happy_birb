@@ -37,7 +37,7 @@ if (surface_exists(surf)) {
 	draw_set_alpha(1);
 
 
-	draw_circle(target.x + random_range(-.2,.2), target.y+ random_range(-.2,.2),radius,false);
+	draw_circle(return_gui_x( target.x + random_range(-.2,.2)),return_gui_y(  target.y+ random_range(-.2,.2)),radius,false);
 
 	timer++;
 	if timer <= time {

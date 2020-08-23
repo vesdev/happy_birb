@@ -16,11 +16,11 @@
     {"instances":[],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Controller","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"til_collision","path":"tilesets/til_collision/til_collision.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":10,"SerialiseHeight":6,"TileSerialiseData":[
 0,40,38,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,43,
-0,0,0,0,42,0,0,0,0,0,
-0,0,0,0,19,33,45,0,0,0,
-0,0,0,0,44,0,0,0,0,0,
-0,34,36,0,0,42,0,0,42,0,
+0,0,0,0,0,0,0,0,0,34,
+0,0,0,0,42,0,0,0,0,16,
+0,0,0,0,19,33,45,0,0,16,
+0,0,0,0,44,0,0,0,0,16,
+0,34,36,0,0,42,0,0,34,1,
 ],},"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collisions","tags":[],"resourceType":"GMRTileLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"o_win_condition","path":"objects/o_win_condition/o_win_condition.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":187.0,"y":163.0,"resourceVersion":"1.0","name":"inst_4C9BFB50","tags":[],"resourceType":"GMRInstance",},

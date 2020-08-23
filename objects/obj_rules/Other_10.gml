@@ -2,7 +2,6 @@
 
 block_result_right = new Block( 
 	 "Go\nRight", global.Rules.Result,
-	 
 	function(){
 		
 		with o_movement_parent {
@@ -43,7 +42,20 @@ block_resolution_gravity = new Block(
 			gravity_y_add = 0;
 			gravity_speed_ = 0;
 			enable_gravity = false;
-			event_user(0);
+		
+		}
+	}
+	,s_block_result
+);
+
+
+
+block_condition_invincible = new Block(
+	"INVIN\nCIBLE", global.Rules.Result, 
+	function(){
+		with o_movement_parent {
+			invincible = true;
+			invincible_timer = 3;
 		}
 	}
 	,s_block_result

@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Oscar",
-    "path": "folders/Objects/Oscar.yy",
+    "name": "GMLive",
+    "path": "folders/Extensions/GMLive.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_gmlive",
