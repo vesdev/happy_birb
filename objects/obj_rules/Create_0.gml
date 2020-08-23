@@ -339,7 +339,7 @@ switch room {
 	
 	blocks[7][4] = block_while2;
 	
-	blocks[6][6] = block_condition_anykey;
+	blocks[6][6] = block_condition_anytime;
 	
 	blocks[5][1] = block_while;
 	blocks[4][1] = block_result_push_solids;

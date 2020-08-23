@@ -15,6 +15,17 @@ if keyboard_check_pressed(ord("E")){
 	room_restart_custom();
 }
 
+if keyboard_check_pressed(ord("M")){
+	
+	global.music_enabled = !global.music_enabled;
+	if !global.music_enabled {
+		audio_stop_sound(snd_music);
+	}else{
+		audio_play_sound(snd_music,0,true);
+	}
+}
+
+
 if keyboard_check_pressed(ord("R"))  && DEBUG{
 	room_goto_next();	
 }
