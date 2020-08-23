@@ -8,6 +8,8 @@ alarm[1] = 1;
 #macro SEC game_get_speed(gamespeed_fps)
 #macro DEBUG true
 
+global.break_statement = false;
+
 global.timeScale = 1;
 alarm[0] = 10;
 

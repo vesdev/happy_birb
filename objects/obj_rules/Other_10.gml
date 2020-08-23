@@ -4,10 +4,17 @@ block_result_right = new Block(
 	 "Go\nRight", global.Rules.Result,
 	 
 	function(){
+		
 		with o_movement_parent {
 			left = false;
 			right = true;
 		}
+			global.break_statement = true;
+		
+			if global.break_statement = true{
+				//stop running when this breaks
+					execute_temp_script = reset_player;
+			}
 	}
 	,
 	 s_block_result
@@ -36,6 +43,7 @@ block_resolution_gravity = new Block(
 			gravity_y_add = 0;
 			gravity_speed_ = 0;
 			enable_gravity = false;
+			event_user(0);
 		}
 	}
 	,s_block_result

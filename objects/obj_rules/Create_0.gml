@@ -1,3 +1,12 @@
+execute_temp_script_flag = true;
+execute_temp_script = noone;
+function reset_player(){ 
+	with o_movement_parent{
+		event_user(0);	
+	}
+}
+
+
 
 elastic_time = SEC*.2;
 elastic_change = 0;
@@ -16,6 +25,11 @@ block_while2 = new Block("WHILE", global.Rules.Statement, global.Rules.While, s_
 
 block_whileNot = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
 block_whileNot2 = new Block("WHILE\nNOT", global.Rules.Statement, global.Rules.WhileNot, s_block_statement);
+
+
+
+
+
 
 block_result_hi = new Block(
 	"say\nhi", global.Rules.Result, 
@@ -333,7 +347,7 @@ switch room {
 
 
 	blocks[7][7] = block_condition_going_right;
-	blocks[5][2] = block_condition_going_left;
+	blocks[5][2] = block_result_left;
 
 
 	blocks[3][6] = block_whileNot;
@@ -370,9 +384,6 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 	
 	
 	var moved_block = -1;
-
-		
-
 		if blocks[x][y] != -1 {
 			
 			if blocks[x][y].blockType == global.Rules.Solid && !global.canPush {
