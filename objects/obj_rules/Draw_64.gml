@@ -1,4 +1,14 @@
 //window_set_size(1280,720)
+if instance_exists(intro_controller) {
+	exit;	
+}
+
+if instance_exists(o_close_transition) {
+		yoffset_all = lerp(yoffset_all,250,.4);
+}else{ 
+		yoffset_all = lerp(yoffset_all,0,.1);	
+}
+
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
@@ -19,7 +29,7 @@ var _yoff;
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
-		draw_sprite_ext(s_grid, 0, xx*tile_size, yy*tile_size+_yoff,1,1,0,c_white,.5);
+		draw_sprite_ext(s_grid, 0, xx*tile_size, yy*tile_size+_yoff+yoffset_all,1,1,0,c_white,.5);
 		if blocks[xx][yy] != -1{
 			if blocks[xx][yy].x != 0 or blocks[xx][yy].y != 0 {
 				/*
@@ -40,7 +50,7 @@ for(var xx = 0; xx < blocks_w ; xx++){
 				}
 			}
 			
-			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size+3+blocks[xx][yy].x, yy*tile_size+_yoff+3+blocks[xx][yy].y,1,1,0,c_black,.6);
+			draw_sprite_ext(blocks[xx][yy].sprite, 0, xx*tile_size+3+blocks[xx][yy].x, yy*tile_size+_yoff+3+blocks[xx][yy].y+yoffset_all,1,1,0,c_black,.6);
 		}
 	}
 }
@@ -49,18 +59,16 @@ _yoff = sin(player_grid_position.x+current_time*0.001);
 _xoff = 5;
 player_grid_position.draw_x = lerp(player_grid_position.draw_x,0,.4);
 player_grid_position.draw_y = lerp(player_grid_position.draw_y,0,.4);
-draw_sprite_ext(s_block_player_control,0,player_grid_position.x*tile_size+3+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+3+player_grid_position.draw_y,1,1,0,c_black,.6);
+draw_sprite_ext(s_block_player_control,0,player_grid_position.x*tile_size+3+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+3+player_grid_position.draw_y+yoffset_all,1,1,0,c_black,.6);
 
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
 		if blocks[xx][yy] != -1{
-			
 			//	if blocks[x][y].timer = 0;
-
 			draw_sprite(blocks[xx][yy].sprite, 
 			0,xx*tile_size+blocks[xx][yy].x, 
-			yy*tile_size+_yoff+blocks[xx][yy].y);
+			yy*tile_size+_yoff+blocks[xx][yy].y+yoffset_all);
 			
 		}
 	}
@@ -73,13 +81,13 @@ for(var xx = 0; xx < blocks_w ; xx++){
 		if blocks[xx][yy] != -1{
 			
 			//	if blocks[x][y].timer = 0;
-			draw_text_transformed_color(xx*tile_size+tile_size/2+blocks[xx][yy].x, yy*tile_size+tile_size/2+_yoff+blocks[xx][yy].y, blocks[xx][yy].name, 
+			draw_text_transformed_color(xx*tile_size+tile_size/2+blocks[xx][yy].x, yy*tile_size+tile_size/2+_yoff+blocks[xx][yy].y+yoffset_all, blocks[xx][yy].name, 
 			.2, .2, 
 			0
 			,c_black,c_black,c_black,c_black,1);
 			
 		}else{
-		draw_text_transformed_color(xx*tile_size+tile_size/2, yy*tile_size+tile_size/2,
+		draw_text_transformed_color(xx*tile_size+tile_size/2, yy*tile_size+tile_size/2+yoffset_all,
 		string(xx)+" "+string(yy),.2, .2, 
 		0
 		,c_black,c_black,c_black,c_black,1);
@@ -91,7 +99,7 @@ gpu_set_tex_filter(false);
 
 
 _yoff = sin(player_grid_position.x+current_time*0.001);
-draw_sprite(s_block_player_control,0,player_grid_position.x*tile_size+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+player_grid_position.draw_y);
+draw_sprite(s_block_player_control,0,player_grid_position.x*tile_size+player_grid_position.draw_x,player_grid_position.y*tile_size+_yoff+player_grid_position.draw_y+yoffset_all);
 
 
 if o_input.up_pressed  {

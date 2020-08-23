@@ -42,6 +42,9 @@ enum e_ease {
 	size_
 }
 
+
+
+
 function easings(argument0, argument1, argument2, argument3, argument4) {
 	
 	if is_string(argument0){
@@ -372,4 +375,37 @@ function transition (next_room) {
 	instance_create_layer(0,0,"Instances",o_transition);
 }
 
+function create(x, y, object) { 
+	
+return instance_create_layer(x,y,"Instances",object);
+	
+}
+function room_restart_custom() {
 
+	create(-15,-15,o_horizontal_open);
+	room_restart();
+
+}
+
+function return_gui_x(argument0) {
+
+	var cl = camera_get_view_x(view_camera[0])
+    
+	var off_x = argument0 - cl // x is the normal x position
+      
+	// convert to gui
+	var off_x_percent = off_x / camera_get_view_width(view_camera[0])
+       
+	return off_x_percent * display_get_gui_width();
+
+
+}
+
+function return_gui_y(argument0) {
+
+	var off_y = argument0 - camera_get_view_y(view_camera[0]);
+	var off_y_percent = off_y / camera_get_view_height(view_camera[0]); 
+	return off_y_percent * display_get_gui_height()
+
+
+}

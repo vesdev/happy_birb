@@ -1,14 +1,11 @@
 
-#macro SEC game_get_speed(gamespeed_fps)
-
-
 elastic_time = SEC*.2;
 elastic_change = 0;
 elastic_current = 0;
 default_easing = e_ease.easeoutelastic;
 
 
-
+yoffset_all = 250;
 
 
 
@@ -42,7 +39,13 @@ block_result_timeslow = new Block(
 
 block_result_jump = new Block( 
 	 "You\nJump", global.Rules.Result,
-	 o_movement_parent.jump,
+	 
+	 function() { 
+		 with o_movement_parent{
+			   jump();
+		 }
+	 }
+	 ,
 	 s_block_result
 ); 
 
@@ -214,11 +217,15 @@ switch room {
 	break;
 	
 	case r_lv_05:
-	blocks[5][4] = block_result_right;
-	blocks[4][5] = block_while;
-	blocks[4][6] = block_touching_ground_condition;
-	blocks[3][2] = block_result_jump;
-	blocks[7][8] = block_condition_anytime;
+
+	blocks[6][2] = block_while;
+	blocks[4][6] = block_whileNot;
+	blocks[7][3] = block_result_left;
+	blocks[3][2] = block_result_right;	
+	blocks[4][3] = block_touching_ground_condition;
+	
+	
+	
 	break;
 	
 	case r_lv_06:
@@ -300,10 +307,22 @@ switch room {
 	blocks[8][8] = block_solid;
 	blocks[8][9] = block_solid;
 	blocks[9][9] = block_solid;	
+	break;		
 	
 	
+	case r_lv_10:
 	
-	break;			
+	blocks[5][4] = block_result_right;
+	blocks[2][3] = block_while;
+	blocks[7][2] = block_result_jump;
+	blocks[3][6] = block_whileNot;
+	blocks[4][6] = block_touching_ground_condition;
+	blocks[3][7] = block_solid;
+	blocks[4][7] = block_solid;
+	blocks[5][6] = block_solid;	
+	
+	break;	
+	
 }
 /*
 blocks[3][4] = block_solid;

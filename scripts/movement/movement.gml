@@ -19,9 +19,8 @@ function add_speed(_direction, _acceleration,_max_speed) {
 
 function move(_bounce){
 	
-	live_name = "move";
-	if (live_call()) return live_result;
 //	if speed_ = 0 exit;
+	
 
 	tilemap = layer_tilemap_get_id("Collisions");
 	 //enable bouncing off walls
@@ -34,8 +33,6 @@ function move(_bounce){
 	var xmult = xdiv * 32;
 	var ymult = ydiv * 32;
 	//y =  ymult+32-sprite_get_yoffset(sprite_index);
-
-
 
 	if _x_speed > 0  bbox_side = bbox_right; else bbox_side = bbox_left;
 	if (tilemap_get_at_pixel(tilemap,bbox_side+_x_speed,bbox_top) != 0) || 
@@ -57,16 +54,15 @@ function move(_bounce){
 	//VERTICLE TILE COLLISIONS
 	
 
-if jump_force > 0 { 
-	jump_force = approach(jump_force,0,.1);
-	y -= jump_force;
-}
+	if jump_force > 0 { 
+		jump_force = approach(jump_force,0,.1);
+		y -= jump_force;
+	}
 
 
 
 	var collision_object_ = o_plataform_parent;
-
-
+	
 	if place_meeting(x, y+_y_speed, collision_object_) {
 		if !place_meeting(x, y+sign(_y_speed), collision_object_) {
 		
@@ -85,9 +81,15 @@ if jump_force > 0 {
 			exit;
 	}
 
-		var bbox_side = bbox_bottom;	
-	if (tilemap_get_at_pixel(tilemap,bbox_right, bbox_side+1) = 0) and
-		(tilemap_get_at_pixel(tilemap,bbox_left, bbox_side+1) = 0)
+
+	if object_index != o_player{
+		offset = 2;
+	}else{
+	var offset = 1;	
+	}
+	var bbox_side = bbox_bottom;	
+	if (tilemap_get_at_pixel(tilemap,bbox_right, bbox_side+offset) = 0) and
+		(tilemap_get_at_pixel(tilemap,bbox_left, bbox_side+offset) = 0)
 	{	
 		
 		
@@ -104,13 +106,11 @@ if jump_force > 0 {
 			gravity_speed_ = clamp(gravity_speed_,0 , 8); 
 			y += gravity_speed_;
 		}else{ 
-			
 			y  =  y div 32;
 			y *= 32;
 			y += 32;
 			y -= sprite_get_yoffset(sprite_index);
 	
-			
 			jump_force = 0;
 			gravity_y_add  = 0;
 			gravity_speed_ = 0;
@@ -123,14 +123,10 @@ if jump_force > 0 {
 			gravity_speed_ = 0;
 	}
 	
-
-
-	
-
 	if (_y_speed > 0)  bbox_side = bbox_bottom; else bbox_side = bbox_top;
-	if (tilemap_get_at_pixel(tilemap,bbox_left,bbox_side+_y_speed) != 0) ||
-	(tilemap_get_at_pixel(tilemap,bbox_right, bbox_side+_y_speed) != 0)
-	{
+		if (tilemap_get_at_pixel(tilemap,bbox_left,bbox_side+_y_speed) != 0) ||
+		(tilemap_get_at_pixel(tilemap,bbox_right, bbox_side+_y_speed) != 0)
+		{
 		
 		
 			gravity_y_add = 0;
@@ -140,7 +136,7 @@ if jump_force > 0 {
 		if (_y_speed > 0) {
 			//x = x - (x % 32) mod returns remainder
 			//snaps to a 32 to 32 grid
-			y = y - (y mod 32) + 32 - (bbox_bottom - y)-1;
+			y = y - (y mod 32) + 32 - (bbox_bottom - y)-offset;
 			_y_speed = -(_y_speed)*bounce_amount_;
 
 		}else{
