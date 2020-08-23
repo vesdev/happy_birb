@@ -7,9 +7,6 @@ function reset_player(){
 	}
 }
 
-
-
-
 u_time = shader_get_uniform(sha_dotted, "time");
 u_texel = shader_get_uniform(sha_dotted, "texel");
 u_uv = shader_get_uniform(sha_dotted, "sprUv");

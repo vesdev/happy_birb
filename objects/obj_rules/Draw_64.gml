@@ -75,7 +75,6 @@ for(var xx = 0; xx < blocks_w ; xx++){
 	}
 }
 
-
 shader_set(sha_dotted);
 shader_set_uniform_f(u_time, current_time);
 
