@@ -121,6 +121,7 @@
     {"id":{"name":"scribble_add_shader_effect","path":"scripts/scribble_add_shader_effect/scribble_add_shader_effect.yy",},"order":1,},
     {"id":{"name":"snd_rule","path":"sounds/snd_rule/snd_rule.yy",},"order":2,},
     {"id":{"name":"snd_move","path":"sounds/snd_move/snd_move.yy",},"order":1,},
+    {"id":{"name":"sha_dotted","path":"shaders/sha_dotted/sha_dotted.yy",},"order":5,},
     {"id":{"name":"scribble_reset","path":"scripts/scribble_reset/scribble_reset.yy",},"order":14,},
     {"id":{"name":"scribble_set_animation","path":"scripts/scribble_set_animation/scribble_set_animation.yy",},"order":1,},
     {"id":{"name":"scribble_set_blend","path":"scripts/scribble_set_blend/scribble_set_blend.yy",},"order":2,},
