@@ -39,7 +39,7 @@ block_resolution_gravity = new Block(
 	"GRAVITY\nOFF", global.Rules.Result, 
 	function(){
 		with o_movement_parent {
-			touching_ground = true;
+			
 			gravity_y_add = 0;
 			gravity_speed_ = 0;
 			enable_gravity = false;
