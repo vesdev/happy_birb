@@ -9,6 +9,7 @@ alarm[1] = 1;
 #macro DEBUG 1
 
 global.break_statement = false;
+global.music_enabled = true;
 
 global.timeScale = 1;
 alarm[0] = 10;

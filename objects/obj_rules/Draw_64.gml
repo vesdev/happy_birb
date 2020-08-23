@@ -30,6 +30,17 @@ matrix_set(matrix_view,matrix_multiply(vm,_cm));
 
 var _yoff;
 
+draw_set_alpha(.8);
+
+_yoff = sin(-1+current_time*0.001);
+draw_sprite(s_retry,0,0,tile_size*blocks_h-(tile_size*2)+yoffset_all+_yoff);
+draw_text_transformed(-22,tile_size*blocks_h-(tile_size*2-12)+yoffset_all+_yoff,"E", .5, .5,0);
+ 
+draw_sprite(s_music,!global.music_enabled,0,tile_size*blocks_h-(tile_size)+yoffset_all+_yoff);
+draw_text_transformed(-22,tile_size*blocks_h-(tile_size-12)+yoffset_all+_yoff,"M", .5, .5,0)
+
+draw_set_alpha(1);
+
 for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
