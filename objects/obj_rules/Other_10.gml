@@ -43,7 +43,15 @@ block_resolution_gravity = new Block(
 
 
 
-
+block_condition_going_left = new Block(
+	"GOING\nLEFT", global.Rules.Condition, 
+	function(){
+		with o_movement_parent {
+			return left;
+		}
+	}
+	,s_block_condition
+);
 
 
 block_condition_going_right = new Block(

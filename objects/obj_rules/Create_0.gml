@@ -49,6 +49,19 @@ block_result_jump = new Block(
 	 s_block_result
 ); 
 
+block_result_jump2 = new Block( 
+	 "You\nJump", global.Rules.Result,
+	 
+	 function() { 
+		 with o_movement_parent{
+			   jump();
+		 }
+	 }
+	 ,
+	 s_block_result
+); 
+
+
 global.canPush = false;
 block_result_push_solids = new Block( 
 	 "Push\nSolids", global.Rules.Result,
@@ -312,7 +325,15 @@ switch room {
 	
 	blocks[5][4] = block_result_right;
 	blocks[2][3] = block_while;
+	blocks[2][4] = block_resolution_gravity;
+
 	blocks[7][2] = block_result_jump;
+
+
+	blocks[7][7] = block_condition_going_right;
+	blocks[5][2] = block_condition_going_left;
+
+
 	blocks[3][6] = block_whileNot;
 	blocks[4][6] = block_touching_ground_condition;
 	blocks[3][7] = block_solid;
