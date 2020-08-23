@@ -1,15 +1,12 @@
 //window_set_size(1280,720)
+if instance_exists(intro_controller) {
+	exit;	
+}
 
 if instance_exists(o_close_transition) {
-	
-
-
-
-
 		yoffset_all = lerp(yoffset_all,250,.4);
 }else{ 
-		yoffset_all = lerp(yoffset_all,0,.1);
-	
+		yoffset_all = lerp(yoffset_all,0,.1);	
 }
 
 

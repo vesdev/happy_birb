@@ -7,7 +7,6 @@ draw_clear_alpha(c_black,0);
 //reset_to_application_surface
 surface_reset_target();
 turn_off_up = false;	
-	
 draw_set_circle_precision(24);	
 	
 timer = 0;

@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "Oscar",
-    "path": "folders/Sprites/Oscar.yy",
+    "path": "folders/Objects/Soves/Sprites/Oscar.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_willy",

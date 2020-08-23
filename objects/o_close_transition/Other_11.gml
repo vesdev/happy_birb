@@ -1,6 +1,5 @@
 /// @description SQUARE OPEN
 //create bubbles
-if instance_exists(o_locked_chest) exit;
 //Top rectangle 
 draw_rectangle(0,-1,width,top_box_y,false);
 //Bot Rectangle

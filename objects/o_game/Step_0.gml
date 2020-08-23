@@ -3,6 +3,8 @@
 if keyboard_check_pressed(ord("F")){
 	//room_goto(r_lv_07);	
 }
+if instance_exists(intro_controller) exit;
+
 
 if keyboard_check_pressed(ord("Q")) && DEBUG{
 	room_goto_previous();	

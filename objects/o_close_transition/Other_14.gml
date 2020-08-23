@@ -1,5 +1,4 @@
 /// @description double_circle transitions
-if live_call() return live_result;
 	timer++;
 	
 
@@ -63,11 +62,18 @@ if (surface_exists(surf)) {
 	surface_reset_target();
 }
 
-if timer > time2 + time+  SEC*.5{
+if timer2 > time2 and timer > time2 + time+  SEC*.5 or instance_exists(intro_controller) and intro_controller.begin_ = true{
+	
+	
+	
 	if next_room != noone{
 		timer = 0;
 		timer2 = 0;
 		room_goto(next_room);
 		alarm[3] = time2;
+		
+		with intro_controller{ 
+			begin_ = false;
+		}
 	}
 }

@@ -39,7 +39,13 @@ block_result_timeslow = new Block(
 
 block_result_jump = new Block( 
 	 "You\nJump", global.Rules.Result,
-	 o_movement_parent.jump,
+	 
+	 function() { 
+		 with o_movement_parent{
+			   jump();
+		 }
+	 }
+	 ,
 	 s_block_result
 ); 
 
@@ -295,9 +301,6 @@ switch room {
 	blocks[8][8] = block_solid;
 	blocks[8][9] = block_solid;
 	blocks[9][9] = block_solid;	
-	
-	
-	
 	break;			
 }
 /*

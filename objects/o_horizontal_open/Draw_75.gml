@@ -1,6 +1,4 @@
 /// @description
-if live_call() return live_result;
-
 
 if !instance_exists(o_game) exit;
 var w = display_get_gui_width();

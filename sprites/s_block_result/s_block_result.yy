@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "Soves",
-    "path": "folders/Sprites/Soves.yy",
+    "path": "folders/Objects/Soves/Sprites/Soves.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_block_result",
