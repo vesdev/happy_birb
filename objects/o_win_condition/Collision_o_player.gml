@@ -5,11 +5,9 @@ if !instance_exists(o_close_transition){
 	s.target = o_player;
 	s.second_target = o_player;
 	s.state = close.circle_open_close;
-	if room = rm_testing {//put last room here
-	
-	}else{
+
 	s.next_room = room_next(room);	
-	}
+	
 
 
 

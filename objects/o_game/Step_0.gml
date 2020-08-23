@@ -11,8 +11,8 @@ if keyboard_check_pressed(ord("Q")) && DEBUG{
 }
 
 if keyboard_check_pressed(ord("E")){
+	
 	room_restart_custom()();
-
 }
 
 if keyboard_check_pressed(ord("R"))  && DEBUG{

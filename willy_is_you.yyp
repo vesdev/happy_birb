@@ -125,6 +125,7 @@
     {"id":{"name":"s_block_solid","path":"sprites/s_block_solid/s_block_solid.yy",},"order":4,},
     {"id":{"name":"scribble_autotype_is_paused","path":"scripts/scribble_autotype_is_paused/scribble_autotype_is_paused.yy",},"order":4,},
     {"id":{"name":"s_collision","path":"sprites/s_collision/s_collision.yy",},"order":1,},
+    {"id":{"name":"r_lv_10","path":"rooms/r_lv_10/r_lv_10.yy",},"order":11,},
     {"id":{"name":"r_init","path":"rooms/r_init/r_init.yy",},"order":0,},
     {"id":{"name":"til_kenny","path":"tilesets/til_kenny/til_kenny.yy",},"order":1,},
     {"id":{"name":"spr_bg_forest","path":"sprites/spr_bg_forest/spr_bg_forest.yy",},"order":5,},
@@ -180,6 +181,7 @@
     {"name":"r_lv_07","path":"rooms/r_lv_07/r_lv_07.yy",},
     {"name":"r_lv_08","path":"rooms/r_lv_08/r_lv_08.yy",},
     {"name":"r_lv_09","path":"rooms/r_lv_09/r_lv_09.yy",},
+    {"name":"r_lv_10","path":"rooms/r_lv_10/r_lv_10.yy",},
     {"name":"r_lv_ending","path":"rooms/r_lv_ending/r_lv_ending.yy",},
   ],
   "Folders": [

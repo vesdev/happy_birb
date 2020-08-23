@@ -65,9 +65,7 @@ for(var xx = 0; xx < blocks_w ; xx++){
 	for(var yy = 0; yy < blocks_h ; yy++){
 		_yoff = sin(xx+current_time*0.001);
 		if blocks[xx][yy] != -1{
-			
 			//	if blocks[x][y].timer = 0;
-
 			draw_sprite(blocks[xx][yy].sprite, 
 			0,xx*tile_size+blocks[xx][yy].x, 
 			yy*tile_size+_yoff+blocks[xx][yy].y+yoffset_all);

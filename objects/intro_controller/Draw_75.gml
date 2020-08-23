@@ -7,7 +7,6 @@ var h = display_get_gui_height();
 if begin_ {
 	
 	if instance_exists(o_player) and !instance_exists(o_close_transition){
-	
 		var s = create(o_player.x,o_player.y,o_close_transition);
 		s.target = o_player;
 		s.next_room = r_lv_01;
@@ -62,8 +61,8 @@ if keyboard_check_pressed(vk_anykey) {
 with o_close_transition {
 	if state != close.circle_open_close{
 	timer2 = 0;
-	alarm[0] = SEC*2.1;
-	alarm[1] = SEC*2.1;
-	alarm[3] = SEC*2.1;
+	alarm[0] = SEC*1.5;
+	alarm[1] = SEC*1.5;
+	alarm[3] = SEC*1.5;
 	}
 }
