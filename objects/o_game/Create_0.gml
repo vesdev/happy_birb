@@ -6,7 +6,7 @@ scribble_init("Fonts", "f_kenny_scribble", true);
 window_set_size(1280,720)
 alarm[1] = 1;
 #macro SEC game_get_speed(gamespeed_fps)
-#macro DEBUG true
+#macro DEBUG false
 
 global.break_statement = false;
 
