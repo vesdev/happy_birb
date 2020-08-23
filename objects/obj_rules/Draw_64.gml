@@ -127,10 +127,10 @@ for(var xx = 0; xx < blocks_w ; xx++){
 			,c_black,c_black,c_black,c_black,1);
 			
 		}else{
-		draw_text_transformed_color(xx*tile_size+tile_size/2, yy*tile_size+tile_size/2+yoffset_all,
-		string(xx)+" "+string(yy),.2, .2, 
-		0
-		,c_black,c_black,c_black,c_black,1);
+	//	draw_text_transformed_color(xx*tile_size+tile_size/2, yy*tile_size+tile_size/2+yoffset_all,
+		//string(xx)+" "+string(yy),.2, .2, 
+	//	0
+		//,c_black,c_black,c_black,c_black,1);
 		}
 	}
 }
