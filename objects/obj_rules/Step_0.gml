@@ -2,7 +2,6 @@ if live_call() return live_result;
 
 
 if global.rightActive && !rightTemp{
-	
 	rightTemp = true;
 }
 if !global.rightActive && rightTemp{

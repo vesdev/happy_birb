@@ -90,6 +90,8 @@ block_result_jump2 = new Block(
 ); 
 
 
+
+
 global.canPush = false;
 block_result_push_solids = new Block( 
 	 "Push\nSolids", global.Rules.Result,
@@ -116,6 +118,25 @@ block_touching_ground_condition2 = new Block(
 		}
 	},s_block_condition
 );
+
+block_touching_ground_condition3 = new Block(
+	"On\nGround", global.Rules.Condition, 
+	function(){
+		with o_movement_parent {
+			return touching_ground;
+		}
+	},s_block_condition
+);
+
+block_touching_ground_condition4 = new Block(
+	"On\nGround", global.Rules.Condition, 
+	function(){
+		with o_movement_parent {
+			return touching_ground;
+		}
+	},s_block_condition
+);
+
 
 
 
@@ -409,6 +430,8 @@ switch room {
 	blocks[4][8] = block_touching_ground_condition;	
 	break;
 	
+
+	
 	case r_lv_13:
 		
 	blocks[2][4] = block_result_right;
@@ -429,7 +452,27 @@ switch room {
 	blocks[8][9] = block_solid;
 
 	blocks[5][9] = block_touching_ground_condition;
-	blocks[6][9] = block_touching_ground_condition;
+	blocks[6][9] = block_touching_ground_condition2;
+	break;	
+	
+	case r_lv_14:
+		
+
+	blocks[2][6] = block_result_right;
+	
+	blocks[4][2] = block_while;	
+	blocks[4][3] = block_while2;	
+	blocks[4][6] = block_whileNot;	
+
+	blocks[6][4] = block_condition_invincible;	
+
+
+
+
+	blocks[7][6] = block_touching_ground_condition;
+	blocks[7][7] = block_touching_ground_condition2;
+	blocks[7][8] = block_touching_ground_condition3;
+	blocks[7][5] = block_touching_ground_condition4;
 	break;		
 }
 /*
@@ -501,7 +544,6 @@ block_push = function(blocks, x,y,x_add,y_add, selfFunc){
 					blocks[x+x_add][y+y_add].ychange = -y_add*tile_size/12;
 					blocks[x+x_add][y+y_add].xbefore = x_add*tile_size/12;
 					blocks[x+x_add][y+y_add].ybefore = y_add*tile_size/12;
-						
 						
 				}
 			}

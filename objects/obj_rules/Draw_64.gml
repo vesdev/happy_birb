@@ -1,7 +1,4 @@
 //window_set_size(1280,720)
-if live_call() return live_result;
-
-
 
 if instance_exists(intro_controller) {
 	exit;	
@@ -99,26 +96,26 @@ for(var xx = 0; xx < blocks_w ; xx++){
 				
 				if blocks[xx][yy].rules[0] != undefined{
 					draw_sprite(s_block_solid, 
-					0,xx*tile_size, 
-					yy*tile_size+_yoff+yoffset_all);
+					0,xx*tile_size+blocks[xx][yy].x, 
+					yy*tile_size+_yoff+yoffset_all+blocks[xx][yy].y);
 					draw_sprite(s_block_solid, 
-					0,(xx-1)*tile_size, 
-					yy*tile_size+sin(xx-1+current_time*0.001)+yoffset_all);
+					0,(xx-1)*tile_size+blocks[xx][yy].x, 
+					yy*tile_size+sin(xx-1+current_time*0.001)+yoffset_all+blocks[xx][yy].y);
 					draw_sprite(s_block_solid, 
-					0,(xx+1)*tile_size, 
-					yy*tile_size+sin(xx+1+current_time*0.001)+yoffset_all);
+					0,(xx+1)*tile_size+blocks[xx][yy].x, 
+					yy*tile_size+sin(xx+1+current_time*0.001)+yoffset_all+blocks[xx][yy].y);
 				}
 				
 				if blocks[xx][yy].rules[1] != undefined{
 					draw_sprite(s_block_solid, 
-					0,xx*tile_size, 
-					yy*tile_size+_yoff+yoffset_all);
+					0,xx*tile_size+blocks[xx][yy].x, 
+					yy*tile_size+_yoff+yoffset_all+blocks[xx][yy].y);
 					draw_sprite(s_block_solid, 
-					0,xx*tile_size, 
-					(yy-1)*tile_size+_yoff+yoffset_all);
+					0,xx*tile_size+blocks[xx][yy].x, 
+					(yy-1)*tile_size+_yoff+yoffset_all+blocks[xx][yy].y);
 					draw_sprite(s_block_solid, 
-					0,xx*tile_size, 
-					(yy+1)*tile_size+_yoff+yoffset_all);
+					0,xx*tile_size+blocks[xx][yy].x, 
+					(yy+1)*tile_size+_yoff+yoffset_all+blocks[xx][yy].y);
 				}
 			}
 			
