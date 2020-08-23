@@ -1,7 +1,5 @@
 //window_set_size(1280,720)
 
-
-
 if instance_exists(intro_controller) {
 	exit;	
 }
