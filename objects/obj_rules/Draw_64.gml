@@ -36,7 +36,7 @@ for(var xx = 0; xx < blocks_w ; xx++){
 				if blocks[xx][yy].timer <= elastic_time{
 				
 					blocks[xx][yy].x = easings(default_easing,blocks[xx][yy].xbefore,blocks[xx][yy].xchange,elastic_time,blocks[xx][yy].timer);
-					blocks[xx][yy].y = easings(default_easing,blocks[xx][yy].ybefore,blocks[xx][yy].ychange,elastic_time,blocks[xx][yy].timer);
+					blocks[xx][yy].y = easings(dsefault_easing,blocks[xx][yy].ybefore,blocks[xx][yy].ychange,elastic_time,blocks[xx][yy].timer);
 					blocks[xx][yy].timer++;
 					
 				}
