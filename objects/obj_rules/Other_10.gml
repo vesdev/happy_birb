@@ -8,12 +8,7 @@ block_result_right = new Block(
 			left = false;
 			right = true;
 		}
-			global.break_statement = true;
-		
-			if global.break_statement = true{
-				//stop running when this breaks
-					execute_temp_script = reset_player;
-			}
+		global.rightActive = true;
 	}
 	,
 	 s_block_result
@@ -28,6 +23,7 @@ block_result_left = new Block(
 			right = false;
 			left = true;
 		}
+		global.leftActive = true;
 	}
 	,
 	 s_block_result
