@@ -16,7 +16,7 @@ global.Rules = {
 	Result : 0,
 	Condition: 1,
 	Statement : 2,
-	Solid : 3,
+	Solid : 3
 }
 
 function Block(_name, _type, _function, _sprite) constructor {

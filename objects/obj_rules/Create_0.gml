@@ -105,6 +105,7 @@ block_solid = new Block(
 	s_block_solid_dark
 );
 
+
 //set up grid
 blocks = [];
 blocks_w = 10;
@@ -189,6 +190,7 @@ updateRules = function(blocks, ruleDsList){
 
 switch room { 
 	case r_lv_01:
+	
 	blocks[3][3] = block_result_right;
 	blocks[4][4] = block_while;
 	blocks[5][5] = block_touching_ground_condition;
